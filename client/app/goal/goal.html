@@ -1,5 +1,7 @@
 
 
-<div ng-repeat="goal in goals" ng-hide="!isOwner()">
+<div ng-if="isAuthenticated()">
+  <div ng-repeat="goal in goals" ng-hide="!isOwner(goal)">
   {{goal.name}}
+</div>
 </div>
