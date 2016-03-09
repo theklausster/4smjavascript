@@ -17,7 +17,7 @@ var GoalSchema = new mongoose.Schema({
   type:{
     name: String,
     endGoal: String,
-    status: String
+    status: Number
   }
 });
 

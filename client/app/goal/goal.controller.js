@@ -25,7 +25,7 @@ angular.module('4smApp')
     $scope.delete = function(goal){
       console.log(goal._id);
       GoalService.delete({id: goal._id});
-        }
+    };
 
 
 
