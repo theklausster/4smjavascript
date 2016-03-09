@@ -1,10 +1,11 @@
 'use strict';
 
-var mongoose = require('bluebird').promisifyAll(require('mongoose'));
+var mongoose = require('bluebird').promisifyAll(require('mongoose')),
+Schema = mongoose.Schema;
 
 var GoalSchema = new mongoose.Schema({
   owner: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'User'
   },
   name: String,
