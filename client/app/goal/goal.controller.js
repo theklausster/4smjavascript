@@ -1,7 +1,14 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('GoalCtrl', function ($scope, GoalService, Auth, socket) {
+  .controller('GoalCtrl', function ($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
+
+    $rootScope.$on("ole", function(){
+      $scope.openDialog();
+
+  });
+
+
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
 
@@ -29,4 +36,19 @@ angular.module('4smApp')
 
 
 
+
+    $scope.openDialog = function(goal){
+  $mdDialog.show({
+    clickOutsideToClose: true,
+    templateUrl: 'app/goal/test.html',
+    targetEvent: event,
+    locals:{ hej : goal
+    },
+    controller: 'OpendialogController',
+  })
+}
+
+  })
+  .controller('OpendialogController', function ($scope, hej) {
+    $scope.goal = hej;
   });

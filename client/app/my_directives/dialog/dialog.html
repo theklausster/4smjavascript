@@ -1,0 +1,20 @@
+<div class="">
+
+  <table class="table">
+ <h1 ng-if="goalIsEmpty"><i class="fa fa-plus"></i> Create new Goal</h1>
+ <h1 ng-if="!goalIsEmpty"><i class="fa fa-pencil"></i> Edit Goal</h1>
+
+    <tr>
+      <td>
+          <md-input-container>
+              <input ng-model="goal.name" required placeholder="Enter Goal Name">
+              <md-button ng-if="goalIsEmpty" ng-click="add()" class="md-raised">Add</md-button>
+              <md-button  ng-if="!goalIsEmpty" ng-click="add()" class="md-raised">Save</md-button>
+          </md-input-container>
+
+
+     </td>
+
+  </table>
+
+  </div>

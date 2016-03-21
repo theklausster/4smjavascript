@@ -1,7 +1,4 @@
-<div dialog></div>
-
 <div ng-if="isAuthenticated()">
-
   <table>
     <thead >
     <tr>
@@ -13,9 +10,9 @@
       <th>Delete</th>
     </tr>
     </thead>
-    <tbody ng-repeat="goal in goals" ng-if="isOwner(goal)">
+    <tbody ng-repeat="goal in goals" ng-if="isOwner(goal)" >
     <tr>
-      <td><Strong>{{goal.name}}</Strong></td>
+      <td ng-click="openDialog(goal)"><Strong > {{goal.name}}</Strong></td>
       <td> <md-progress-linear md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
       <td ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
       <td ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
@@ -25,9 +22,10 @@
     </tr>
     </tbody>
   </table>
- 
+
+</div>
+
 
 <div ng-if="!isAuthenticated()">
   <h1>Please Log In</h1>
 </div>
-
