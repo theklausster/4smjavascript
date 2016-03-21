@@ -101,3 +101,6 @@ td {
   transform: rotateY(20deg);
 }
 
+.tgl {
+  display: none;
+}
