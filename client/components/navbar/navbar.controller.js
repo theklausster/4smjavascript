@@ -1,5 +1,6 @@
   'use strict';
 
+
   angular.module('4smApp')
     .controller('NavbarController', function ($scope, Auth, $controller, $rootScope) {
     $scope.isCollapsed = true;

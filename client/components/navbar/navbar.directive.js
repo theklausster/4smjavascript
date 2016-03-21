@@ -5,4 +5,6 @@ angular.module('4smApp')
     templateUrl: 'components/navbar/navbar.html',
     restrict: 'E',
     controller: 'NavbarController',
-    }));
+
+  }));
+
