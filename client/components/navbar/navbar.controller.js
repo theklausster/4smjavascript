@@ -1,21 +1,16 @@
 'use strict';
 
-class NavbarController {
-  //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  }];
-
-  isCollapsed = true;
-  //end-non-standard
-
-  constructor(Auth) {
-    this.isLoggedIn = Auth.isLoggedIn;
-    this.isAdmin = Auth.isAdmin;
-    this.getCurrentUser = Auth.getCurrentUser;
-  }
-}
-
 angular.module('4smApp')
-  .controller('NavbarController', NavbarController);
+  .controller('NavbarController', function ($scope, Auth) {
+    $scope.menu = [{
+      'title': 'Home',
+      'state': 'main'
+    },{
+      'title': 'Goal',
+      'state': 'goal'
+    }];
+    $scope.isCollapsed = true;
+    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isAdmin = Auth.isAdmin;
+    $scope.getCurrentUser = Auth.getCurrentUser;
+  });

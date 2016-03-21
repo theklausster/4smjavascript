@@ -2,13 +2,30 @@
 
 <div ng-if="isAuthenticated()">
 
+  <table>
+    <thead >
+    <tr>
+      <th>Goal</th>
+      <th>Progress</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Notify</th>
+      <th>Delete</th>
 
-
-  <div ng-repeat="goal in goals" ng-if="isOwner(goal)">
-  {{goal.name}} <md-button ng-click="delete(goal)" class="md-raised">delete</md-button>
-</div>
-
-
+    </tr>
+    </thead>
+    <tbody ng-repeat="goal in goals" ng-if="isOwner(goal)">
+    <tr>
+      <td><Strong>{{goal.name}}</Strong></td>
+      <td> <md-progress-linear md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
+      <td ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
+      <td ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
+      <td> <input class='tgl tgl-flip' id='cb5' type='checkbox' checked="goal.wantUpdate">
+      <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='cb5'></label></td>
+      <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
+    </tr>
+    </tbody>
+  </table>
   <md-input-container>
     <label class="sr-only" for="create">Add Goal</label>
     <input ng-model="newGoal.name" class="form-control" id="create" placeholder="Add">
@@ -18,5 +35,6 @@
 </div>
 
 <div ng-if="!isAuthenticated()">
-<h1>Please Log In</h1>
+  <h1>Please Log In</h1>
 </div>
+
