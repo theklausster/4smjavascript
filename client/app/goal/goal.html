@@ -1,20 +1,18 @@
-<div dialog></div>
-
 <div ng-if="isAuthenticated()">
 
 
 
-  <div ng-repeat="goal in goals" ng-if="isOwner(goal)">
+  <div ng-repeat="goal in goals" ng-if="isOwner(goal)" ng-click="openDialog(goal)">
   {{goal.name}} <md-button ng-click="delete(goal)" class="md-raised">delete</md-button>
 </div>
 
 
   <md-input-container>
-    <label class="sr-only" for="create">Add Goal</label>
+      <label class="sr-only" for="create">Add Goal</label>
     <input ng-model="newGoal.name" class="form-control" id="create" placeholder="Add">
   </md-input-container>
 
-  <md-button ng-click="add()" class="md-raised">Add</md-button>
+  <md-button ng-click="openDialog()" class="md-raised">Add</md-button>
 </div>
 
 <div ng-if="!isAuthenticated()">
