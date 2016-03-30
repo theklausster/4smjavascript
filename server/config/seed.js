@@ -21,7 +21,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -35,7 +42,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -49,7 +63,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -62,7 +83,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -76,7 +104,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -90,7 +125,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -103,7 +145,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -117,7 +166,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -131,7 +187,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -144,7 +207,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -158,7 +228,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -172,7 +249,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -185,7 +269,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -199,7 +290,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -213,7 +311,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -226,7 +331,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -240,7 +352,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -254,7 +373,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -267,7 +393,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -281,7 +414,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -295,7 +435,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -308,7 +455,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -322,7 +476,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -336,7 +497,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -349,7 +517,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -363,7 +538,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -377,7 +559,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -390,7 +579,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -404,7 +600,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -418,7 +621,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -431,7 +641,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -445,7 +662,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -459,7 +683,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -472,7 +703,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -486,7 +724,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -500,7 +745,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -514,7 +766,14 @@ Goal.find({}).removeAsync().then(() => {
         endGoal: '5 km',
         status: 15
 
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -528,7 +787,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -542,7 +808,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -555,7 +828,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -568,8 +848,16 @@ Goal.find({}).removeAsync().then(() => {
       type: {
         name: 'Run',
         endGoal: '5 km',
+
         status: 25
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -583,7 +871,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 25
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
@@ -595,8 +890,17 @@ Goal.find({}).removeAsync().then(() => {
       type: {
         name: 'Run',
         endGoal: '5 km',
+
         status: 25
-      }
+
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -610,7 +914,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 40
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     },
     {
       owner: '56dd41b58d6566e00ab466da',
@@ -624,7 +935,14 @@ Goal.find({}).removeAsync().then(() => {
         name: 'Run',
         endGoal: '5 km',
         status: 50
-      }
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
     });
 });
 

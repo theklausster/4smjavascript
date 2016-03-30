@@ -5,8 +5,10 @@
   </div>
 
   <table>
+
     <h1 class="myHeader1" class="md-display-1">Completed</h1>
     <h2 class="myHeader2" class="md-display-1">In Progress</h2>
+
   <table class="InProgress">
     <thead>
     <tr>
@@ -39,11 +41,16 @@
     </thead>
     <tbody class="InProgress-tbody" ng-repeat="goal in goals|orderBy:orderByField:reverseSort" ng-if="isOwner(goal) && goal.type.status != 100" >>
     <tr>
-      <td class="Completed-td" ng-click="openDialog(goal)"><Strong> {{goal.name}}</Strong></td>
-      <td> <md-progress-linear class="Progress"md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
+      <td class="Completed-td" ng-click="openDialog(goal)">
+        <md-tooltip md-direction="right">
+          {{getSub(goal)}}
+        </md-tooltip>
+        <Strong > {{goal.name}}</Strong></td>
+      <td> <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
       <td class="Completed-td" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
       <td class="Completed-td" ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
-      <td> <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model=$parent.goal.wantUpdate >
+      <td> <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model=$parent.goal.wantUpdate>
+
       <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
       <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
     </tr>
