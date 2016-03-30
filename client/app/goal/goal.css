@@ -1,7 +1,7 @@
-md-progress-linear{
+md-progress-linear.Progress{
   max-width: 200px;
 }
-body {
+body.InProgress-tbody, body.Completed-tbody {
   background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
   color: #444;
   font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
@@ -12,7 +12,7 @@ strong {
   font-weight: bold;
 }
 
-th {
+th.Completed-th, th.InProgress-th {
   background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
   border-left: 1px solid #555;
   border-right: 1px solid #777;
@@ -26,7 +26,7 @@ th {
   text-shadow: 0 1px 0 #000;
 }
 
-td {
+td.Completed-td, td.InProgress-td {
   border-right: 1px solid #fff;
   border-left: 1px solid #e8e8e8;
   border-top: 1px solid #fff;
@@ -117,11 +117,11 @@ table.Completed {
   float:right;
   width:30%;
 }
-h1{
+h1.myHeader1{
   float:right;
   width:30%;
 }
-h2{
+h2.myHeader2{
   float:left;
   width:65%;
 }

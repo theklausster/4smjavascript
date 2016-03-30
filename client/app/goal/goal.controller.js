@@ -29,11 +29,14 @@ angular.module('4smApp')
         });
     };
 
+    $scope.wantUpdate = function(goal){
+      console.log(goal._id);
+      GoalService.update({id: goal._id});
+    };
     $scope.delete = function(goal){
       console.log(goal._id);
       GoalService.delete({id: goal._id});
     };
-
 
 
 

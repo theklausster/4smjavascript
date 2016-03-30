@@ -506,13 +506,14 @@ Goal.find({}).removeAsync().then(() => {
       name: 'Run 10000000 km',
       startDate: '2016-03-07',
       endDate: '2016-03-09',
-      wantUpdate: true,
+      wantUpdate: false,
       updateInterval: 7,
       share: true,
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
+        status: 15
+
       }
     },
     {
@@ -561,13 +562,13 @@ Goal.find({}).removeAsync().then(() => {
       name: 'Run 10 km',
       startDate: '2016-03-07',
       endDate: '2016-03-30',
-      wantUpdate: true,
+      wantUpdate: false,
       updateInterval: 7,
       share: true,
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
+        status: 25
       }
     },
     {
@@ -575,26 +576,26 @@ Goal.find({}).removeAsync().then(() => {
       name: 'Run 5 km',
       startDate: '2016-03-07',
       endDate: '2016-03-12',
-      wantUpdate: true,
+      wantUpdate: false,
       updateInterval: 7,
       share: true,
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
+        status: 25
       }
     },{
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
       startDate: '2016-03-07',
       endDate: '2016-03-09',
-      wantUpdate: true,
+      wantUpdate: false,
       updateInterval: 7,
       share: true,
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
+        status: 25
       }
     },
     {
@@ -602,13 +603,13 @@ Goal.find({}).removeAsync().then(() => {
       name: 'Run 10 km',
       startDate: '2016-03-07',
       endDate: '2016-03-30',
-      wantUpdate: true,
+      wantUpdate: false,
       updateInterval: 7,
       share: true,
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
+        status: 40
       }
     },
     {
