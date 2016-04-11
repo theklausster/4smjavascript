@@ -11,7 +11,8 @@ angular.module('4smApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'ngMaterial'
+  'ngMaterial',
+  'angularUtils.directives.dirPagination'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

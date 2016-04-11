@@ -1,31 +1,98 @@
 <div ng-if="isAuthenticated()">
-  <table>
-    <thead >
-    <tr>
-      <th>Goal</th>
-      <th>Progress</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Notify</th>
-      <th>Delete</th>
+  <div class = "search-wrapper cf">
+  <input type="text" placeholder="Search here..." required="">
+  <button type="submit">Search</button>
+  </div>
 
+
+
+  <table>
+
+    <h1 class="myHeader1" class="md-display-1">Completed</h1>
+    <h2 class="myHeader2" class="md-display-1">In Progress</h2>
+
+
+
+  <table class="InProgress">
+    <thead>
+    <tr>
+      <th class="InProgress-th">
+        <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">
+          Goal <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+      </a>
+      </th>
+      <th class="InProgress-th">
+        <a href="#" ng-click="orderByField='type.status'; reverseSort = !reverseSort">
+          Progress <span ng-show="orderByField == 'type.status'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+      </a>
+      <th class="InProgress-th">
+        <a href="#" ng-click="orderByField='startDate'; reverseSort = !reverseSort">
+          Start Date <span ng-show="orderByField == 'startDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+      </a>
+        </th>
+      <th class="InProgress-th">
+        <a href="#" ng-click="orderByField='endDate'; reverseSort = !reverseSort">
+          End Date <span ng-show="orderByField == 'endDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+      </a>
+      </th>
+      <th class="InProgress-th">
+        <a href="#" ng-click="orderByField='wantUpdate'; reverseSort = !reverseSort">
+          Notify <span ng-show="orderByField == 'wantUpdate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+      </a>
+      </th>
+      <th class="InProgress-th">Delete</th>
     </tr>
 
+
     </thead>
-    <tbody ng-repeat="goal in goals" ng-if="isOwner(goal)" >
+    <tbody class="InProgress-tbody" dir-paginate="goal in goals|orderBy:orderByField:reverseSort|itemsPerPage:10">
+    <tr ng-if="isOwner(goal) && goal.type.status != 100">
+      <td class="Completed-td" ng-click="openDialog(goal)">
+        <md-tooltip md-direction="right">
+          {{goal.name}}
+        </md-tooltip>
+        <Strong > {{goal.name}}</Strong></td>
+      <td> <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
+      <td class="Completed-td" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
+      <td class="Completed-td" ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
+      <td> <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">
+
+      <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
+      <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
+    </tr>
+
+    <tr ng-show="$index % 10 === 9">
+      <td><dir-pagination-controls></dir-pagination-controls></td>
+    </tr>
+
+
+
+
+
+    </tbody>
+  </table>
+
+
+  <table class="Completed">
     <tr>
-      <td ng-click="openDialog(goal)"><Strong > {{goal.name}}</Strong></td>
-      <td> <md-progress-linear md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
-      <td ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
-      <td ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
-      <td> <input  class='tgl tgl-flip' id='cb5' type='checkbox' checked="goal.wantUpdate">
-      <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='cb5'></label></td>
+      <th class="Completed-th">Goal</th>
+      <th class="Completed-th">End Date</th>
+      <th class="Completed-th">Delete</th>
+    </tr>
+    </thead>
+    <tbody class="Completed-tbody" ng-repeat="goal in goals" ng-if="isOwner(goal) && goal.type.status === 100" >
+    <tr>
+      <td class="Completed-td" ng-click="openDialog(goal)"><Strong > {{goal.name}}</Strong></td>
+      <td class="Completed-td"ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
       <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
     </tr>
     </tbody>
   </table>
+  </table>
+
 
 </div>
+
 
 <div ng-if="!isAuthenticated()">
   <h1>Please Log In</h1>

@@ -18,7 +18,11 @@ var GoalSchema = new mongoose.Schema({
     name: String,
     endGoal: String,
     status: Number
-  }
+  },
+  subGoal: [{
+    name: String,
+    done: Boolean
+  }]
 });
 
 export default mongoose.model('Goal', GoalSchema);
