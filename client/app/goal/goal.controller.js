@@ -3,11 +3,9 @@
 angular.module('4smApp')
   .controller('GoalCtrl', function ($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
 
-    $rootScope.$on("ole", function(){
+    $rootScope.$on('add', function(){
       $scope.openDialog();
-
   });
-
 
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
@@ -40,15 +38,15 @@ angular.module('4smApp')
     $scope.openDialog = function(goal){
   $mdDialog.show({
     clickOutsideToClose: true,
-    templateUrl: 'app/goal/test.html',
+    templateUrl: 'app/goal/createEditGoal.html',
     targetEvent: event,
-    locals:{ hej : goal
+    locals:{ goal : goal
     },
     controller: 'OpendialogController',
-  })
-}
+  });
+};
 
   })
-  .controller('OpendialogController', function ($scope, hej) {
-    $scope.goal = hej;
+  .controller('OpendialogController', function ($scope, goal) {
+    $scope.goal = goal;
   });

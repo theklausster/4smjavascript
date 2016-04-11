@@ -10,6 +10,7 @@
       <th>Delete</th>
 
     </tr>
+
     </thead>
     <tbody ng-repeat="goal in goals" ng-if="isOwner(goal)" >
     <tr>
@@ -17,7 +18,7 @@
       <td> <md-progress-linear md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
       <td ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
       <td ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
-      <td> <input class='tgl tgl-flip' id='cb5' type='checkbox' checked="goal.wantUpdate">
+      <td> <input  class='tgl tgl-flip' id='cb5' type='checkbox' checked="goal.wantUpdate">
       <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='cb5'></label></td>
       <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
     </tr>

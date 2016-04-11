@@ -9,7 +9,7 @@
     $scope.getCurrentUser = Auth.getCurrentUser;
 
     $scope.add = function(){
-          $rootScope.$emit('ole', {});
+          $rootScope.$emit('add', {});
         };
 
 

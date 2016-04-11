@@ -12,14 +12,7 @@
 import _ from 'lodash';
 import Goal from './goal.model';
 
-function respondWithResult(res, statusCode) {
-  statusCode = statusCode || 200;
-  return function(entity) {
-    if (entity) {
-      res.status(statusCode).json(entity);
-    }
-  };
-}
+
 function responseWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -60,20 +53,6 @@ function handleEntityNotFound(res) {
   };
 }
 
-function handleError(res, statusCode) {
-  statusCode = statusCode || 500;
-  return function(err) {
-    res.status(statusCode).send(err);
-  };
-}
-
-
-export function index(req, res) {
-  Goal.find({}).populate('owner', 'name email')
-    .execAsync()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-}
 
 // Gets a list of Goals
 //export function index(req, res) {
@@ -81,6 +60,30 @@ export function index(req, res) {
     //.then(respondWithResult(res))
     //.catch(handleError(res));
 //}
+
+
+function respondWithResult(res, statusCode) {
+  statusCode = statusCode || 200;
+  return function(entity) {
+    if (entity) {
+      res.status(statusCode).json(entity);
+    }
+  };
+}
+
+function handleError(res, statusCode) {
+  statusCode = statusCode || 500;
+  return function(err) {
+    res.status(statusCode).send(err);
+  };
+}
+
+// Creates a new Goal in the DB
+export function create(req, res) {
+  Goal.createAsync(req.body)
+    .then(respondWithResult(res, 201))
+    .catch(handleError(res));
+}
 
 // Gets a single Goal from the DB
 export function show(req, res) {
@@ -90,10 +93,12 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Goal in the DB
-export function create(req, res) {
-  Goal.createAsync(req.body)
-    .then(respondWithResult(res, 201))
+
+
+export function index(req, res) {
+  Goal.find({}).populate('owner', 'name email')
+    .execAsync()
+    .then(responseWithResult(res))
     .catch(handleError(res));
 }
 
