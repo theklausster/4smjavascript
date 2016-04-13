@@ -34,7 +34,7 @@ Goal.find({}).removeAsync().then(() => {
 
 
 var damn = [];
-for(var i = 1; i < 50; i++){
+for(var i = 1; i < 200; i++){
   damn.push({
       owner: '56dd37428f299f3008be7630',
       name: i + ' Run 10000000 km',
@@ -58,7 +58,7 @@ for(var i = 1; i < 50; i++){
     });
 }
 Goal.createAsync(damn).then(() => {
-  console.log('50 Goals populated');
+  console.log('200 Goals populated');
 });
 
 

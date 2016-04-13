@@ -11,7 +11,6 @@ angular.module('4smApp')
     $scope.newGoal = {};
 
     $scope.isOwner = function(goal) {
-      console.log(goal);
       return Auth.getCurrentUser()._id === goal.owner._id;
     };
 
