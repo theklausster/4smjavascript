@@ -20,13 +20,12 @@ Goal.find({}).removeAsync().then(() => {
       type: {
         name: 'Run',
         endGoal: '5 km',
-        status: 50
       },
       subGoal: [{
-        name: '5 km',
+        name: '1 km',
         done: true
       },{
-        name: '10 km',
+        name: '3 km',
         done: false
       }]
     });

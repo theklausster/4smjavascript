@@ -1,48 +1,72 @@
-<div class="">
+<div layout="column" layout-margin>
+  <h1 ng-if="goalIsEmpty"><i class="fa fa-plus"></i> Create new Goal</h1>
+  <h1 ng-if="!goalIsEmpty"><i class="fa fa-pencil"></i> Edit Goal</h1>
 
-  <table class="table">
- <h1 ng-if="goalIsEmpty"><i class="fa fa-plus"></i> Create new Goal</h1>
- <h1 ng-if="!goalIsEmpty"><i class="fa fa-pencil"></i> Edit Goal</h1>
 
-    <tr>
-      <td>
-          <md-input-container>
-              <input ng-model="goal.name" required placeholder="Enter Goal Name">
-              <md-button ng-if="goalIsEmpty" ng-click="add()" class="md-raised">Add</md-button>
-              <md-button  ng-if="!goalIsEmpty" ng-click="add()" class="md-raised">Save</md-button>
-          </md-input-container>
-     </td>
-     <td></td>
-   </tr>
-
- <md-content layout-gt-xs="row">
-   <tr>
-     <td>
-       <h4>Start Date </h4>
-       <md-datepicker ng-model="goal.startDate" md-placeholder="Enter date">
-      </md-datepicker>
-    </td>
-
-    <td>
-      <h4>End Date </h4>
-      <md-datepicker ng-model="user.endDate" md-placeholder="Enter date">
-     </md-datepicker>
-   </td>
- </tr>
-
- </md-content>
-
-  </table>
-
+  <div layout="row" layout-margin>
+    <md-input-container>
+      <input ng-model="goal.name" required placeholder="Enter Goal Name">
+    </md-input-container>
   </div>
-  name: String,
-  startDate: Date,
-  endDate: Date,
-  wantUpdate: Boolean,
-  updateInterval: Number,
-  share: Boolean,
-  type:{
-    name: String,
-    endGoal: String,
-    status: Number
-  }
+
+  <div layout="row" layout-margin>
+    <h4>Start Date </h4>
+    <md-datepicker ng-model="goal.startDate" md-placeholder="Enter date">
+    </md-datepicker>
+  </div>
+
+  <div layout="row" layout-margin>
+    <h4>End Date </h4>
+    <md-datepicker ng-model="goal.endDate" md-placeholder="Enter date">
+    </md-datepicker>
+  </div>
+
+  <div layout="row" layout-margin>
+    <h4>Check if you want other people to see your Goal</h4>
+    <md-checkbox ng-model="goal.share" aria-label="Checkbox 1"></md-checkbox>
+  </div>
+
+  <div layout="row" layout-margin>
+    <h4>Check if you want to be notified before the Goal starts.</h4>
+    <md-checkbox ng-model="goal.wantUpdate" aria-label="Checkbox 1"></md-checkbox>
+  </div>
+
+
+
+
+  <div ng-if="goal.wantUpdate">
+    <h4> Select # days before the update.</h4>
+    <md-slider flex md-discrete ng-model="goal.updateInterval" step="1" min="1" max="7" aria-label="rating"></md-slider>
+  </div>
+
+
+
+  <md-input-container style="color: black">
+    <input ng-model="goal.type.name" required placeholder="Enter A Genre">
+  </md-input-container>
+
+
+  <md-input-container>
+    <input ng-model="goal.type.endGoal" required placeholder="Enter what you want to accomplish - Like running a marathon">
+  </md-input-container>
+
+<div layout="row" layout-margin>
+  <md-input-container>
+    <input ng-model="sub" required placeholder="Enter sub goal to reach your main goal">
+  </md-input-container>
+  <md-button ng-click="addSubgoal()" class="md-raised"><i class="fa fa-plus" aria-hidden="true" style="color:green"></i></md-button>
+</div>
+
+<div layout="row" layout-margin>
+  <div ng-repeat="s in subGoal" ng-if="!_.isEmpty(subGoal)"  ng-click="removeSubGoal(s)">
+    <p>{{s.name}} <i class="fa fa-minus" aria-hidden="true" style="color:red"></i></p>
+  </div>
+</div>
+
+  <div>
+    <md-button ng-if="goalIsEmpty" ng-click="add()" class="md-raised">Add</md-button>
+    <md-button ng-if="!goalIsEmpty" ng-click="add()" class="md-raised">Save</md-button>
+  </div>
+</div>
+
+type:{ name: String, endGoal: String, status: Number }
