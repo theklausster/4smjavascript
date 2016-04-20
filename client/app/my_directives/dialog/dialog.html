@@ -50,6 +50,7 @@
     <input ng-model="goal.type.endGoal" required placeholder="Enter what you want to accomplish - Like running a marathon">
   </md-input-container>
 
+
 <div layout="row" layout-margin>
   <md-input-container>
     <input ng-model="sub" required placeholder="Enter sub goal to reach your main goal">
@@ -58,7 +59,7 @@
 </div>
 
 <div layout="row" layout-margin>
-  <div ng-repeat="s in subGoal" ng-if="!_.isEmpty(subGoal)"  ng-click="removeSubGoal(s)">
+  <div ng-repeat="s in goal.subGoal" ng-if="!_.isEmpty(subGoal)"  ng-click="removeSubGoal(s)">
     <p>{{s.name}} <i class="fa fa-minus" aria-hidden="true" style="color:red"></i></p>
   </div>
 </div>
@@ -68,5 +69,3 @@
     <md-button ng-if="!goalIsEmpty" ng-click="add()" class="md-raised">Save</md-button>
   </div>
 </div>
-
-type:{ name: String, endGoal: String, status: Number }

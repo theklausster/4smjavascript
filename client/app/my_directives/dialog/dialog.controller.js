@@ -5,18 +5,19 @@ angular.module('4smApp')
 
     if(_.isUndefined($scope.goal)) {
       $scope.goalIsEmpty = true;
-      $scope.subGoal = [];
+      $scope.goal.subGoal = [];
     }
 
 
 
+
     $scope.addSubgoal = function(){
-      $scope.subGoal.push({name: $scope.sub, done: false});
+      $scope.goal.subGoal.push({name: $scope.sub, done: false});
       $scope.sub = '';
     };
 
     $scope.removeSubGoal = function(s){
-      _($scope.subGoal).remove(a => a.name === s.name);
+      _($scope.goal.subGoal).remove(a => a.name === s.name);
     };
 
   });
