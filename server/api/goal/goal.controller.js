@@ -156,3 +156,11 @@ export function destroy(req, res) {
     .then(removeEntity(res))
     .catch(handleError(res));
 }
+
+export function getSharedTop5(req, res){
+  return Goal.find({'share' : true}).sort({'startDate': -1}).limit(5)
+  .then(handleEntityNotFound(res))
+  .then(respondWithResult(res))
+  .catch(handleError(res)
+);
+}

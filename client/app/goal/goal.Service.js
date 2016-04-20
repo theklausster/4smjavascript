@@ -5,7 +5,11 @@ angular.module('4smApp')
 return $resource('/api/goals/:id', {
     id: '@id'},
     { 'update': {method:'PUT'}, params:{ id:'@id' },
-    paged: {  method:'GET' }
+      jimmy: { url: '/api/goals/jimmy/',
+       method:'GET', isArray: true},
+    paged: {  method:'GET' },
+
+
    });
 
 
