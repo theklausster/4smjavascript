@@ -12,7 +12,7 @@ Goal.find({}).removeAsync().then(() => {
   Goal.create({
       owner: '56dd37428f299f3008be7630',
       name: 'Run 10000000 km',
-      startDate: '2016-03-07',
+      startDate: '2016-04-20',
       endDate: '2016-03-09',
       wantUpdate: true,
       updateInterval: 7,

@@ -68,6 +68,8 @@ $scope.pageChanged = function(newPage) {
       });
     };
 
+
+
     $scope.openDialog = function(goal){
   $mdDialog.show({
     clickOutsideToClose: true,
@@ -81,7 +83,10 @@ $scope.pageChanged = function(newPage) {
 
   })
 
-  .controller('OpendialogController', function($scope, goal) {
+  .controller('OpendialogController', function($scope, goal, $mdDialog) {
     $scope.goal = goal;
 
+    $scope.closeDialog = function(data){
+      $mdDialog.hide(data);
+    };
   });
