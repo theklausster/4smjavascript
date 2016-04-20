@@ -95,12 +95,47 @@ export function show(req, res) {
 
 
 
-export function index(req, res) {
-  Goal.find({}).populate('owner', 'name email')
-    .execAsync()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-}
+  export function index(req, res) {
+    //Create the query
+    var query = {};
+    if(req.query.search && req.query.search.length > 0){
+      query = {'title':new RegExp(req.query.search, 'i') };
+    }
+
+
+    //Make sure limit and page are numbers and above 1
+    if(!req.query.limit || parseFloat(req.query.limit) < 1){
+      req.query.limit = 25;
+    }
+    if(!req.query.page || parseFloat(req.query.page) < 1){
+      req.query.page = 1;
+    }
+
+    //Create the offset (ex. page = 1 and limit = 25 would result in 0 offset. page = 2 and limit = 25 would result in 25 offset.)
+    var offset = (req.query.page - 1) * req.query.limit;
+
+    //Testing if offset is bigger then result, if yes set offset to zero
+    Goal.count(query, function(err, count) {
+        if(offset > count){
+          offset = 0;
+        }
+
+        //Create object for pagination query
+        var options = {
+          select: 'owner name startDate endDate wantUpdate updateInterval share type subGoal',
+          sort: req.query.sortBy,
+          populate: {path: 'owner', select: 'name email'},
+          offset: offset,
+          limit: parseFloat(req.query.limit)
+        };
+
+        //Do the actual pagination
+        Goal.paginate(query, options)
+          .then(respondWithResult(res))
+          .catch(handleError(res));
+    });
+  }
+
 
 // Updates an existing Goal in the DB
 export function update(req, res) {

@@ -14,11 +14,24 @@ angular.module('4smApp')
       return Auth.getCurrentUser()._id === goal.owner._id;
     };
 
-    GoalService.query(function(goals) {
-      $scope.goals = goals;
-      console.log('test', goals);
-      socket.syncUpdates('goal', $scope.goals);
-    });
+    function getResultsPage(pageNumber){
+      GoalService.paged( {
+        limit: 10,
+        page: pageNumber}, function(goals){
+          $scope.numberOfGoals = goals.total;
+          $scope.goals = goals.docs;
+          $scope.currentPage = pageNumber;
+          socket.syncUpdates('goal', $scope.goals);
+  });
+}
+getResultsPage(1);
+
+
+$scope.pageChanged = function(newPage) {
+      console.log(newPage);
+       getResultsPage(newPage);
+   };
+
 
     function done(subDone) {
       if (subDone === true) {

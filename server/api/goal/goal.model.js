@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose')),
+paginater = require('mongoose-paginate'),
 Schema = mongoose.Schema;
 
 var GoalSchema = new mongoose.Schema({
@@ -24,5 +25,7 @@ var GoalSchema = new mongoose.Schema({
     done: Boolean
   }]
 });
+
+GoalSchema.plugin(paginater);
 
 export default mongoose.model('Goal', GoalSchema);

@@ -12,7 +12,7 @@
     <h2 class="myHeader2" class="md-display-1">In Progress</h2>
 
 
-
+  <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
   <table class="InProgress">
     <thead>
     <tr>
@@ -43,9 +43,8 @@
       <th class="InProgress-th">Delete</th>
     </tr>
 
-
     </thead>
-    <tbody class="InProgress-tbody" dir-paginate="goal in goals|orderBy:orderByField:reverseSort|itemsPerPage:10">
+    <tbody class="InProgress-tbody" dir-paginate="goal in goals|orderBy:orderByField:reverseSort|itemsPerPage:10" current-page="pagination.current" total-items="numberOfGoals">
     <tr ng-if="isOwner(goal) && goal.type.status != 100">
       <td class="Completed-td" ng-click="openDialog(goal)">
         <md-tooltip md-direction="right">
@@ -60,17 +59,9 @@
       <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
       <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
     </tr>
-
-    <tr ng-show="$last">
-      <td><dir-pagination-controls></dir-pagination-controls></td>
-    </tr>
-
-
-
-
-
     </tbody>
   </table>
+
 
 
   <table class="Completed">
