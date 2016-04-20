@@ -60,6 +60,33 @@ Goal.createAsync(damn).then(() => {
   console.log('200 Goals populated');
 });
 
+for(var i = 1; i < 2; i++){
+  damn.push({
+      owner: '56dd37428f299f3008be7630',
+      name: i + ' nyest',
+      startDate: '2016-04-14',
+      endDate: '2016-03-09',
+      wantUpdate: true,
+      updateInterval: 7,
+      share: true,
+      type: {
+        name: i + ' Run',
+        endGoal: '5 km',
+        status: 50
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
+    });
+}
+Goal.createAsync(damn).then(() => {
+  console.log('2 Goals populated');
+});
+
 
 Thing.find({}).removeAsync()
   .then(() => {

@@ -6,7 +6,7 @@ angular.module('4smApp')
       .state('main', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'MainController',
+        controller: 'GoalCtrl',
         controllerAs: 'main'
       });
   });
