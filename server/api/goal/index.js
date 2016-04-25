@@ -5,7 +5,9 @@ var controller = require('./goal.controller');
 var auth = require('../../auth/auth.service');
 
 var router = express.Router();
-router.get('/jimmy', controller.getSharedTop5);
+router.get('/sharedNew', controller.getSharedNew);
+router.get('/sharedRandom', controller.getSharedRandom);
+router.get('/sharedRated', controller.getSharedRated);
 router.get('/',controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
