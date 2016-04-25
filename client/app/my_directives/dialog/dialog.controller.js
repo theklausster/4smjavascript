@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('DialogController', function ($scope, GoalService) {
+  .controller('DialogController', function ($scope, GoalService, Auth) {
 
     if(!_.isUndefined($scope.goal)) {
       $scope.goal.startDate = new Date($scope.goal.startDate);
@@ -24,9 +24,9 @@ angular.module('4smApp')
     };
 
     $scope.saveOrUpdate = function(){
-      if($scope.goal._id){
-        GoalService.save($scope.goal);
-      }
+      $scope.goal.owner = Auth.getCurrentUser();
+      $scope.goal._id ? GoalService.update({id: $scope.goal._id}, $scope.goal) : GoalService.save($scope.goal);
     };
+
 
   });

@@ -11,9 +11,9 @@ angular.module('4smApp')
     $scope.newGoal = {};
 
     $scope.isOwner = function(goal) {
-      return Auth.getCurrentUser()._id === goal.owner._id;
+      return Auth.getCurrentUser()._id === goal.owner._id ? goal.owner._id : goal.owner;
     };
-
+  
     function getResultsPage(pageNumber){
       GoalService.paged( {
         limit: 10,

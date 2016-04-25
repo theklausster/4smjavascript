@@ -22,9 +22,9 @@ function responseWithResult(res, statusCode) {
   };
 }
 
-function saveUpdates(updates) {
+function saveUpdates(updates) {;
   return function(entity) {
-    var updated = _.merge(entity, updates);
+    var updated = _.extend(entity, updates);
     return updated.saveAsync()
       .spread(updated => {
         return updated;
