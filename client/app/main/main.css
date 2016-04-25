@@ -24,8 +24,10 @@
 #newShared {
   background: #cceeff;
   width: 400px;
-  height: 475px;
+  height: 100%;
   line-height: 5px;
+  overflow: hidden;
+
 
 }
 
