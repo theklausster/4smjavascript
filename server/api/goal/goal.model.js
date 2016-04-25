@@ -2,6 +2,7 @@
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose')),
 paginater = require('mongoose-paginate'),
+random =  require('mongoose-random'),
 Schema = mongoose.Schema;
 
 var GoalSchema = new mongoose.Schema({
@@ -15,6 +16,7 @@ var GoalSchema = new mongoose.Schema({
   wantUpdate: Boolean,
   updateInterval: Number,
   share: Boolean,
+  rate:{ type: Number, min: 0, max: 5 },
   type:{
     name: String,
     endGoal: String,
@@ -26,6 +28,7 @@ var GoalSchema = new mongoose.Schema({
   }]
 });
 
-GoalSchema.plugin(paginater);
+GoalSchema.plugin(paginater)
+GoalSchema.plugin(random);
 
 export default mongoose.model('Goal', GoalSchema);

@@ -11,7 +11,9 @@ angular.module('4smApp')
     $scope.newGoal = {};
 
     $scope.isOwner = function(goal) {
+        console.log('Test' + Auth.getCurrentUser()._id + goal.owner._id);
       return Auth.getCurrentUser()._id === goal.owner._id;
+
     };
 
     function getResultsPage(pageNumber){
@@ -32,18 +34,6 @@ $scope.pageChanged = function(newPage) {
        getResultsPage(newPage);
    };
 
-
-    function done(subDone) {
-      if (subDone === true) {
-        return 'Yes';
-      }
-      return 'No';
-    }
-
-    $scope.getSub = function(goal) {
-      var x = '';
-
-
     $scope.wantUpdate = function(goal){
       console.log(goal._id);
       GoalService.update({id: goal._id});
@@ -55,11 +45,6 @@ $scope.pageChanged = function(newPage) {
         });
       };
 
-      _(goal.subGoal).forEach(a => x += a.name + ' ' + done(a.done) + ' ');
-
-      console.log(x);
-      return x;
-    };
 
     $scope.add = function() {
       $scope.newGoal.owner = Auth.getCurrentUser();

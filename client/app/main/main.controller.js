@@ -1,50 +1,59 @@
 'use strict';
+angular.module('4smApp')
+  .controller('MainController', function($http, $scope, socket, GoalService) {
 
-(function() {
+    $scope.shared = {};
+    $scope.sharedRandom = {};
+    $scope.sharedRated = {};
 
-class MainController {
-
-  constructor($http, $scope, socket, GoalService) {
-    this.$http = $http;
-    this.GoalService = GoalService;
-    this.awesomeThings = [];
-
-
-    $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
-      socket.syncUpdates('thing', this.awesomeThings);
-    });
-
-    $scope.$on('$destroy', function() {
-      socket.unsyncUpdates('thing');
-    });
-  }
-
-
-    hello(){
-      this.GoalService.jimmy(function(data){
-        console.log('jimmy', data);
+    function sharedNewGoal() {
+      GoalService.sharedNew(function(data) {
+        $scope.shared = _.take(data, 5);
+        console.log($scope.shared);
       });
     }
+    sharedNewGoal();
 
-
-
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', { name: this.newThing });
-      this.newThing = '';
+    function sharedRandomGoal() {
+      GoalService.sharedRandom(function(data) {
+        $scope.sharedRandom = data;
+        console.log($scope.sharedRandom);
+      });
     }
-  }
+    sharedRandomGoal();
 
-  deleteThing(thing) {
-    this.$http.delete('/api/things/' + thing._id);
-  }
+    function sharedRated() {
+      GoalService.sharedRated(function(data) {
+        $scope.sharedRated = data;
+        console.log($scope.sharedRandom);
+      });
+    }
+    sharedRated();
 
-}
 
+    function done(subDone) {
+      if (subDone === true) {
+        return 'Yes';
+      }
+      return 'No';
+    }
 
+    $scope.getSub = function(goal) {
+      var x = '';
 
-angular.module('4smApp')
-  .controller('MainController', MainController);
+      _(goal.subGoal).forEach(a => x += a.name + ' - ' + done(a.done) + ' ');
 
-})();
+      //  console.log(x);
+      return x;
+    };
+
+    $scope.range = function(min, max, step) {
+    step = step || 1;
+    var input = [];
+    for (var i = min; i <= max; i += step) {
+        input.push(i);
+    }
+    return input;
+};
+
+  });
