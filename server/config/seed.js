@@ -11,15 +11,17 @@ import Goal from '../api/goal/goal.model';
 Goal.find({}).removeAsync().then(() => {
   Goal.create({
       owner: '56dd37428f299f3008be7630',
-      name: 'Run 10000000 km',
-      startDate: '2016-03-07',
+      name: 'Best rated',
+      startDate: '2016-04-20',
       endDate: '2016-03-09',
       wantUpdate: true,
       updateInterval: 7,
       share: true,
+      rate: 5,
       type: {
         name: 'Run',
         endGoal: '5 km',
+        status: 33
       },
       subGoal: [{
         name: '1 km',
@@ -42,6 +44,7 @@ for(var i = 1; i < 200; i++){
       wantUpdate: true,
       updateInterval: 7,
       share: true,
+      rate: 3,
       type: {
         name: i + ' Run',
         endGoal: '5 km',
@@ -58,6 +61,34 @@ for(var i = 1; i < 200; i++){
 }
 Goal.createAsync(damn).then(() => {
   console.log('200 Goals populated');
+});
+
+for(var i = 1; i < 2; i++){
+  damn.push({
+      owner: '56dd37428f299f3008be7630',
+      name: i + ' nyeste',
+      startDate: '2016-04-22',
+      endDate: '2016-03-09',
+      wantUpdate: true,
+      updateInterval: 7,
+      share: true,
+      rate: 4,
+      type: {
+        name: i + ' Run',
+        endGoal: '5 km',
+        status: 50
+      },
+      subGoal: [{
+        name: '5 km',
+        done: true
+      },{
+        name: '10 km',
+        done: false
+      }]
+    });
+}
+Goal.createAsync(damn).then(() => {
+  console.log('2 Goals populated');
 });
 
 

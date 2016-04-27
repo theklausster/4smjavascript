@@ -1,22 +1,32 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('DialogController', function ($scope) {
+  .controller('DialogController', function ($scope, GoalService, Auth) {
 
-    if(_.isUndefined($scope.goal)) {
-      $scope.goalIsEmpty = true;
-      $scope.subGoal = [];
+    if(!_.isUndefined($scope.goal)) {
+      $scope.goal.startDate = new Date($scope.goal.startDate);
+      $scope.goal.endDate = new Date($scope.goal.endDate);
     }
 
-
+    if(_.isUndefined($scope.goal)) {
+      $scope.goal = {};
+      $scope.goalIsEmpty = true;
+      $scope.goal.subGoal = [];
+    }
 
     $scope.addSubgoal = function(){
-      $scope.subGoal.push({name: $scope.sub, done: false});
+      $scope.goal.subGoal.push({name: $scope.sub, done: false});
       $scope.sub = '';
     };
 
     $scope.removeSubGoal = function(s){
-      _($scope.subGoal).remove(a => a.name === s.name);
+      _($scope.goal.subGoal).remove(a => a.name === s.name);
     };
+
+    $scope.saveOrUpdate = function(){
+      $scope.goal.owner = Auth.getCurrentUser();
+      $scope.goal._id ? GoalService.update({id: $scope.goal._id}, $scope.goal) : GoalService.save($scope.goal);
+    };
+
 
   });

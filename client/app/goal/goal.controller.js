@@ -9,21 +9,27 @@ angular.module('4smApp')
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
     $scope.isOwner = function(goal) {
-      return Auth.getCurrentUser()._id === goal.owner._id;
+      return Auth.getCurrentUser()._id === goal.owner._id ? goal.owner._id : goal.owner;
     };
-    GoalService.query(function(goals) {
-      $scope.goals = goals;
-      console.log('test', goals);
-      socket.syncUpdates('goal', $scope.goals);
-    });
-    function done(subDone) {
-      if (subDone === true) {
-        return 'Yes';
-      }
-      return 'No';
-    }
-    $scope.getSub = function(goal) {
-      var x = '';
+
+
+    function getResultsPage(pageNumber){
+      GoalService.paged( {
+        limit: 10,
+        page: pageNumber}, function(goals){
+          $scope.numberOfGoals = goals.total;
+          $scope.goals = goals.docs;
+          $scope.currentPage = pageNumber;
+          socket.syncUpdates('goal', $scope.goals);
+  });
+}
+getResultsPage(1);
+
+
+$scope.pageChanged = function(newPage) {
+      console.log(newPage);
+       getResultsPage(newPage);
+   };
 
     $scope.wantUpdate = function(goal){
       console.log(goal._id);
@@ -35,10 +41,6 @@ angular.module('4smApp')
           id: goal._id
         });
       };
-      _(goal.subGoal).forEach(a => x += a.name + ' ' + done(a.done) + ' ');
-      console.log(x);
-      return x;
-    };
 
     $scope.add = function() {
       $scope.newGoal.owner = Auth.getCurrentUser();
@@ -46,6 +48,8 @@ angular.module('4smApp')
         $scope.newGoal = {};
       });
     };
+
+
 
     $scope.openDialog = function(goal){
   $mdDialog.show({
@@ -58,8 +62,12 @@ angular.module('4smApp')
   });
 };
   })
-  .controller('OpendialogController', function($scope, goal) {
+
+  .controller('OpendialogController', function($scope, goal, $mdDialog) {
     $scope.goal = goal;
 
+    $scope.closeDialog = function(data){
+      $mdDialog.hide(data);
+    };
   });
 
