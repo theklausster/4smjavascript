@@ -9,7 +9,7 @@ angular.module('4smApp')
     function sharedNewGoal() {
       GoalService.sharedNew(function(data) {
         $scope.shared = _.take(data, 5);
-        console.log($scope.shared);
+        //socket.syncUpdates('goal', sharedNewGoal());
       });
     }
     sharedNewGoal();
@@ -17,7 +17,7 @@ angular.module('4smApp')
     function sharedRandomGoal() {
       GoalService.sharedRandom(function(data) {
         $scope.sharedRandom = data;
-        console.log($scope.sharedRandom);
+        //socket.syncUpdates('goal', sharedRandomGoal());
       });
     }
     sharedRandomGoal();
@@ -25,7 +25,7 @@ angular.module('4smApp')
     function sharedRated() {
       GoalService.sharedRated(function(data) {
         $scope.sharedRated = data;
-        console.log($scope.sharedRandom);
+        //socket.syncUpdates('goal', sharedRated());
       });
     }
     sharedRated();
@@ -55,5 +55,5 @@ angular.module('4smApp')
     }
     return input;
 };
-
+socket.syncUpdates('goal', sharedNewGoal());
   });
