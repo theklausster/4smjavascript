@@ -2,34 +2,28 @@
 
 angular.module('4smApp')
   .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
-
     $rootScope.$on('add', function(){
       $scope.openDialog();
   });
-
+    $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
-
     $scope.isOwner = function(goal) {
       return Auth.getCurrentUser()._id === goal.owner._id;
     };
-
     GoalService.query(function(goals) {
       $scope.goals = goals;
       console.log('test', goals);
       socket.syncUpdates('goal', $scope.goals);
     });
-
     function done(subDone) {
       if (subDone === true) {
         return 'Yes';
       }
       return 'No';
     }
-
     $scope.getSub = function(goal) {
       var x = '';
-
 
     $scope.wantUpdate = function(goal){
       console.log(goal._id);
@@ -41,9 +35,7 @@ angular.module('4smApp')
           id: goal._id
         });
       };
-
       _(goal.subGoal).forEach(a => x += a.name + ' ' + done(a.done) + ' ');
-
       console.log(x);
       return x;
     };
@@ -65,10 +57,9 @@ angular.module('4smApp')
     controller: 'OpendialogController',
   });
 };
-
   })
-
   .controller('OpendialogController', function($scope, goal) {
     $scope.goal = goal;
 
   });
+

@@ -1,17 +1,87 @@
 <div ng-if="isAuthenticated()">
-  <div class = "search-wrapper cf">
-  <input type="text" placeholder="Search here..." required="">
-  <button type="submit">Search</button>
-  </div>
+  <header class="GoalHeader">
+
+    <h1>Your Goals <span>( {{ goals.length }} )</span></h1>
+  </header>
+  <main>
+
+    <div class="ctrls">
+
+      <div class="filter">
+        <span class="m m-search"></span>
+        <input type="text" ng-model="searchies" ng-change="onQueryChange(searchies)" class="form-control" placeholder="Filter">
+      </div>
+
+      <div class="grid-toggle">
+        <a ng-click="gridToggle = !gridToggle" ng-class="{ 'active' : gridToggle }">
+          <span class="m m-squares"></span>
+          <span class="m m-form"></span>
+        </a>
+      </div>
+
+    </div>
 
 
+    <div class="container">
 
-  <table>
+      <ul class="grid" ng-class="{ 'grid-list' : gridToggle, 'grid-thumb' : !gridToggle }">
+        <li class="grid-head">
+          <ul>
+            <li style="width:20%"><a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort">
+              Goal <span ng-show="orderByField == 'name'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </a></li>
+            <li style="width:15%"><a href="#" ng-click="orderByField='type.status'; reverseSort = !reverseSort">
+              Progress <span ng-show="orderByField == 'type.status'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </a></li>
+            <li style="width:10%"><a href="#" ng-click="orderByField='startDate'; reverseSort = !reverseSort">
+              Start Date <span ng-show="orderByField == 'startDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </a></li>
+            <li style="width:10%"><a href="#" ng-click="orderByField='endDate'; reverseSort = !reverseSort">
+              End Date <span ng-show="orderByField == 'endDate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </a></li>
+            <li style="width:10%"><a href="#" ng-click="orderByField='wantUpdate'; reverseSort = !reverseSort">
+              Notify <span ng-show="orderByField == 'wantUpdate'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+            </a></li>
+            <li style="width:5%">Delete</li>
+          </ul>
+        </li>
+        <li class="grid-body animate-repeat" ng-repeat="goal in goals | orderBy:sortingOrder:reverse" ng-class="{'last':$last}">
 
-    <h1 class="myHeader1" class="md-display-1">Completed</h1>
-    <h2 class="myHeader2" class="md-display-1">In Progress</h2>
+          <ul>
+            <li>
+              <span class="grid-icon m" ng-class="goal.icon"></span>
+              <span class="grid-title"><a href="#">{{ goal.name }}</a></span>
+            </li>
 
+            <li>
+              <span class="grid-username"><md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}%</Strong></span>
+              <span class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></span>
+              <span class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'"></span>
+              <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">
+              <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label>
+              <md-button ng-click="delete(goal)" class="md-raised">delete</md-button>
+            </li>
+            <li>
+          <span class="grid-options"><a href="#"><span class="m m-ellipsis"></span></a>
+          </span>
+            </li>
+          </ul>
 
+        </li>
+
+        <li class="clear-fix"></li>
+
+        <li class="pagination">
+          <pager total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" ng-change="pageChanged()"></pager>
+          <p ng-if="itemsPerPage * currentPage < totalItems">
+            Showing {{ itemsPerPage * currentPage - itemsPerPage + 1 }} - {{ itemsPerPage * currentPage }} of {{ totalItems }} total items
+          </p>
+          <p ng-if="itemsPerPage * currentPage >= totalItems">
+            Showing {{ itemsPerPage * currentPage - itemsPerPage + 1 }} - {{ totalItems }} of {{ totalItems }} total items
+          </p>
+        </li>
+      </ul>
+    </div>
 
   <table class="InProgress">
     <thead>
@@ -55,9 +125,9 @@
       <td> <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear> <Strong> {{goal.type.status}}% </Strong></td>
       <td class="Completed-td" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></td>
       <td class="Completed-td" ng-bind="goal.endDate | date:'dd/MM/yyyy'"></td>
-      <td> <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">
+      <!--<td> <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">-->
 
-      <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
+      <!--<label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>-->
       <td><md-button ng-click="delete(goal)" class="md-raised">delete</md-button></td>
     </tr>
 
@@ -88,10 +158,11 @@
     </tr>
     </tbody>
   </table>
-  </table>
 
+</main>
 
 </div>
+
 
 
 <div ng-if="!isAuthenticated()">
