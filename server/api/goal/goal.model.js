@@ -17,10 +17,9 @@ var GoalSchema = new mongoose.Schema({
   updateInterval: Number,
   share: Boolean,
   rate:{ type: Number, min: 0, max: 5 },
-  type:{
-    name: String,
-    endGoal: String,
-    status: Number
+  status: Number,
+  category:{
+    name: String
   },
   subGoal: [{
     name: String,

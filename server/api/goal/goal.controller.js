@@ -124,7 +124,7 @@ export function index(req, res) {
 
     //Create object for pagination query
     var options = {
-      select: 'owner name startDate endDate wantUpdate updateInterval share type subGoal rate',
+      select: 'owner name startDate endDate wantUpdate updateInterval share status category subGoal rate',
       sort: req.query.sortBy,
       populate: {
         path: 'owner',

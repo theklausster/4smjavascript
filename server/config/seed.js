@@ -18,10 +18,9 @@ Goal.find({}).removeAsync().then(() => {
       updateInterval: 7,
       share: true,
       rate: 5,
-      type: {
-        name: 'Run',
-        endGoal: '5 km',
-        status: 33
+      status: 33,
+      category: {
+      name: 'Run'
       },
       subGoal: [{
         name: '1 km',
@@ -45,10 +44,9 @@ for(var i = 1; i < 200; i++){
       updateInterval: 7,
       share: true,
       rate: 3,
-      type: {
-        name: i + ' Run',
-        endGoal: '5 km',
-        status: 50
+      status: 50,
+      category: {
+        name: i + ' Run'
       },
       subGoal: [{
         name: '5 km',
@@ -73,11 +71,10 @@ for(var i = 1; i < 2; i++){
       updateInterval: 7,
       share: true,
       rate: 4,
-      type: {
-        name: i + ' Run',
-        endGoal: '5 km',
-        status: 50
-      },
+      status: 50,
+      category: {
+        name: i + ' Run'
+            },
       subGoal: [{
         name: '5 km',
         done: true

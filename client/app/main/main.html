@@ -26,8 +26,8 @@
           </p>
           <p>{{getSub(goal)}}</p>
           <p>
-            <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
-            <Strong> {{goal.type.status}}% done</Strong>
+            <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.status}}"> </md-progress-linear>
+            <Strong> {{goal.status}}% done</Strong>
           </p>
           <div layout="row">
             <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
@@ -56,8 +56,8 @@
         </p>
         <p>{{getSub(goal)}}</p>
         <p>
-          <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
-          <Strong> {{goal.type.status}}% done</Strong>
+          <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.status}}"> </md-progress-linear>
+          <Strong> {{goal.status}}% done</Strong>
         </p>
         <div layout="row">
           <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
@@ -86,8 +86,8 @@
       </p>
       <p>{{getSub(goal)}}</p>
       <p>
-        <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
-        <Strong> {{goal.type.status}}% done</Strong>
+        <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.status}}"> </md-progress-linear>
+        <Strong> {{goal.status}}% done</Strong>
       </p>
       <div layout="row">
         <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
