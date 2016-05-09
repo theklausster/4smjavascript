@@ -6,40 +6,42 @@
   </div>
 </header>
 
-<div layout="row" layout-align="center" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+<div class="slider">
+  <div class="slide active-slide">
 
-  <span>
+    <div layout="row" layout-align="center" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+      <span>
       <md-content >
         <md-toolbar class="md-hue-3">
       <div class="md-toolbar-tools">
         <span>New shared goals</span>
-</div>
-</md-toolbar>
-<md-list flex id="newShared" >
-  <md-list-item class="md-3-line" ng-repeat="goal in shared" ng-click="null" >
-    <img ng-src="assets/images/running.png" class="md-avatar" alt="{{item.who}}" />
-    <div class="md-list-item-text" layout="column">
-      <p>
-        <Strong>{{goal.name}}</Strong>
-      </p>
-      <p>{{getSub(goal)}}</p>
-      <p>
-        <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
-        <Strong> {{goal.type.status}}% done</Strong>
-      </p>
-      <div layout="row">
-        <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-        <p ng-if="goal.rate == 4" ng-repeat="n in range(1,4)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-        <p ng-if="goal.rate == 3" ng-repeat="n in range(1,3)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-        <p ng-if="goal.rate == 2" ng-repeat="n in range(1,2)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-        <p ng-if="goal.rate == 1" ng-repeat="n in range(1,1)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-      </div>
     </div>
-  </md-list-item>
-  </md-content>
-  </span>
+    </md-toolbar>
+    <md-list flex id="newShared">
+      <md-list-item class="md-3-line" ng-repeat="goal in shared" ng-click="null">
+        <img ng-src="assets/images/running.png" class="md-avatar" alt="{{item.who}}" />
+        <div class="md-list-item-text" layout="column">
+          <p>
+            <Strong>{{goal.name}}</Strong>
+          </p>
+          <p>{{getSub(goal)}}</p>
+          <p>
+            <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
+            <Strong> {{goal.type.status}}% done</Strong>
+          </p>
+          <div layout="row">
+            <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+            <p ng-if="goal.rate == 4" ng-repeat="n in range(1,4)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+            <p ng-if="goal.rate == 3" ng-repeat="n in range(1,3)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+            <p ng-if="goal.rate == 2" ng-repeat="n in range(1,2)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+            <p ng-if="goal.rate == 1" ng-repeat="n in range(1,1)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+          </div>
+        </div>
+      </md-list-item>
+      </md-content>
+      </span>
 
-  <span><md-content >
+      <span><md-content >
       <md-toolbar class="md-hue-3">
     <div class="md-toolbar-tools">
       <span>Random shared goals</span>
@@ -73,30 +75,41 @@
       <md-toolbar class="md-hue-3">
     <div class="md-toolbar-tools">
       <span>Best rated goals</span>
-    </div>
-    </md-toolbar>
-    <md-list flex id="newShared">
-      <md-list-item class="md-3-line" ng-repeat="goal in sharedRated" ng-click="null">
-        <img ng-src="assets/images/running.png" class="md-avatar" alt="{{item.who}}" />
-        <div class="md-list-item-text" layout="column">
-          <p>
-            <Strong>{{goal.name}}</Strong>
-          </p>
-          <p>{{getSub(goal)}}</p>
-          <p>
-            <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
-            <Strong> {{goal.type.status}}% done</Strong>
-          </p>
-          <div layout="row">
-            <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-            <p ng-if="goal.rate == 4" ng-repeat="n in range(1,4)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-            <p ng-if="goal.rate == 3" ng-repeat="n in range(1,3)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-            <p ng-if="goal.rate == 2" ng-repeat="n in range(1,2)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-            <p ng-if="goal.rate == 1" ng-repeat="n in range(1,1)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
-          </div>
-        </div>
-      </md-list-item>
-      </md-content>
-      </span>
-
+</div>
+</md-toolbar>
+<md-list flex id="newShared">
+  <md-list-item class="md-3-line" ng-repeat="goal in sharedRated" ng-click="null">
+    <img ng-src="assets/images/running.png" class="md-avatar" alt="{{item.who}}" />
+    <div class="md-list-item-text" layout="column">
+      <p>
+        <Strong>{{goal.name}}</Strong>
+      </p>
+      <p>{{getSub(goal)}}</p>
+      <p>
+        <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.type.status}}"> </md-progress-linear>
+        <Strong> {{goal.type.status}}% done</Strong>
+      </p>
+      <div layout="row">
+        <p ng-if="goal.rate == 5" ng-repeat="n in range(1,5)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+        <p ng-if="goal.rate == 4" ng-repeat="n in range(1,4)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+        <p ng-if="goal.rate == 3" ng-repeat="n in range(1,3)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+        <p ng-if="goal.rate == 2" ng-repeat="n in range(1,2)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
+        <p ng-if="goal.rate == 1" ng-repeat="n in range(1,1)"><img ng-src="assets/images/star.png" class="md-icon" alt="{{item.who}}" id="star" /></p>
       </div>
+    </div>
+  </md-list-item>
+  </md-content>
+  </span>
+  </div>
+  </div>
+  </div>
+  <div class="slider-nav">
+    <a href="#" class="arrow-prev"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-prev.png"></a>
+    <ul class="slider-dots">
+      <li class="dot active-dot">&bull;</li>
+      <li class="dot">&bull;</li>
+      <li class="dot">&bull;</li>
+      <li class="dot">&bull;</li>
+    </ul>
+    <a href="#" class="arrow-next"><img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/arrow-next.png"></a>
+  </div>
