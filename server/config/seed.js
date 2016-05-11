@@ -90,6 +90,18 @@ Category.find({}).removeAsync()
       }, {
         _id: '56dd41b58d6566e00ab469da',
         name: 'Walking'
+      }, {
+        _id: '56dd41b58d6566e00ab489da',
+        name: 'Pesonal'
+      }, {
+        _id: '56dd41b58d6566e00ab479da',
+        name: 'Home Indoor'
+      }, {
+        _id: '56dd41b58d6566e00ab499da',
+        name: 'Home Outdoor'
+      }, {
+        _id: '56dd41b58d6566e00ab569da',
+        name: 'Cooking'
       })
       .then(() => {
         console.log('finished populating categories');
