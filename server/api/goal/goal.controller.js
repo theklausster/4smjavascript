@@ -22,7 +22,7 @@ function responseWithResult(res, statusCode) {
   };
 }
 
-function saveUpdates(updates) {;
+function saveUpdates(updates) {
   return function(entity) {
     var updated = _.extend(entity, updates);
     return updated.saveAsync()
@@ -129,6 +129,10 @@ export function index(req, res) {
       populate: {
         path: 'owner',
         select: 'name email'
+      },
+      populate: {
+        path: 'category',
+        select: 'name '
       },
       offset: offset,
       limit: parseFloat(req.query.limit)

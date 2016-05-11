@@ -10,6 +10,10 @@ var GoalSchema = new mongoose.Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+  category:{
+    type: Schema.ObjectId,
+    ref: 'Category'
+  },
   name: String,
   startDate: Date,
   endDate: Date,
@@ -18,10 +22,7 @@ var GoalSchema = new mongoose.Schema({
   share: Boolean,
   rate:{ type: Number, min: 0, max: 5 },
   status: Number,
-  category:{
-    name: String
-  },
-  subGoal: [{
+    subGoal: [{
     name: String,
     done: Boolean
   }]
