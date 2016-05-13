@@ -36,7 +36,7 @@ for (var i = 1; i < 20; i++) {
   damn.push({
     owner: '56dd37428f299f3008be7630',
     category: '56dd37428f299f3008be7639',
-    name: i + ' Run 10000000 km',
+    name: i + ' Run 20 km',
     startDate: '2016-03-07',
     endDate: '2016-03-09',
     wantUpdate: true,
@@ -45,10 +45,19 @@ for (var i = 1; i < 20; i++) {
     rate: 3,
     status: 50,
     subGoal: [{
-      name: '5 km',
+      name: '2 km',
       done: true
     }, {
-      name: '10 km',
+      name: '2 km',
+      done: false
+    }, {
+      name: '2 km',
+      done: false
+    }, {
+      name: '2 km',
+      done: false
+    }, {
+      name: '2 km',
       done: false
     }]
   });
