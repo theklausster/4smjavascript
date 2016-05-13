@@ -173,7 +173,7 @@ export function getSharedNew(req, res) {
 export function getSharedRandom(req, res) {
   return Goal.findRandom({
       'share': true
-    }).limit(7)
+    }).limit(5)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -182,19 +182,79 @@ export function getSharedRandom(req, res) {
 export function getSharedRated(req, res) {
   return Goal.find({
       'share': true
-    }).sort ('-rate').limit(7)
+    }).sort ('-rate').limit(5)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-export function getSharedRun(req, res) {
+export function getSharedRunning(req, res) {
   return Goal.find({
       'share': true,
       'category': '56dd37428f299f3008be7639'
     }).sort({
       'startDate': -1
-    }).limit(7)
+    }).limit(5)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedWalking(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd41b58d6566e00ab469da'
+    }).sort({
+      'startDate': -1
+    }).limit(5)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedPersonal(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd41b58d6566e00ab489da'
+    }).sort({
+      'startDate': -1
+    }).limit(5)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedIndoor(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd41b58d6566e00ab479da'
+    }).sort({
+      'startDate': -1
+    }).limit(5)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedOutdoor(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd41b58d6566e00ab499da'
+    }).sort({
+      'startDate': -1
+    }).limit(5)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedCooking(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd41b58d6566e00ab569da'
+    }).sort({
+      'startDate': -1
+    }).limit(5)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

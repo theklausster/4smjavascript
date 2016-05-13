@@ -36,6 +36,29 @@
   height: 20px;
 }
 
+.slider {
+  position: relative;
+  width: 100%;
+  height: 470px;
+  border-bottom: 1px solid #ddd;
+}
+
+.slide {
+  background: transparent url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png') center center no-repeat;
+  background-size: cover;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.active-slide {
+    display: block;
+}
+
+
 ./* Slide feature */
 
 
@@ -85,4 +108,11 @@
 
 .slider-dots li.active-dot {
   color: #363636;
+}
+#padIt{
+padding-top: 2px;
+}
+
+#statusLine {
+  width: 75%;
 }

@@ -5,6 +5,12 @@ angular.module('4smApp')
     $scope.shared = {};
     $scope.sharedRandom = {};
     $scope.sharedRated = {};
+    $scope.sharedRunning = {};
+    $scope.sharedWalking = {};
+    $scope.sharedPersonal = {};
+    $scope.sharedOutdoor = {};
+    $scope.sharedIndoor = {};
+    $scope.sharedCooking = {};
 
     function sharedNewGoal() {
       GoalService.sharedNew(function(data) {
@@ -30,6 +36,53 @@ angular.module('4smApp')
     }
     sharedRated();
 
+    function sharedRunning() {
+      GoalService.sharedRunning(function(data) {
+        $scope.sharedRunning = data;
+        //socket.syncUpdates('goal', sharedRated());
+      });
+    }
+    sharedRunning();
+
+      function sharedWalking() {
+      GoalService.sharedWalking(function(data) {
+        $scope.sharedWalking = data;
+        //socket.syncUpdates('goal', sharedRated());
+      });
+    }
+    sharedWalking();
+
+    function sharedPersonal() {
+    GoalService.sharedPersonal(function(data) {
+      $scope.sharedPersonal = data;
+      //socket.syncUpdates('goal', sharedRated());
+    });
+  }
+  sharedPersonal();
+
+  function sharedIndoor() {
+    GoalService.sharedIndoor(function(data) {
+      $scope.sharedIndoor = data;
+      //socket.syncUpdates('goal', sharedRated());
+    });
+  }
+  sharedIndoor();
+
+    function sharedOutdoor() {
+    GoalService.sharedOutdoor(function(data) {
+      $scope.sharedOutdoor = data;
+      //socket.syncUpdates('goal', sharedRated());
+    });
+  }
+  sharedOutdoor();
+
+  function sharedCooking() {
+  GoalService.sharedPersonal(function(data) {
+    $scope.sharedCooking = data;
+    //socket.syncUpdates('goal', sharedRated());
+  });
+}
+sharedCooking();
 
     function done(subDone) {
       if (subDone === true) {
