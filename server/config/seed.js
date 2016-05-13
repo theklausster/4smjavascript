@@ -20,7 +20,6 @@ Goal.find({}).removeAsync().then(() => {
       rate: 5,
       type: {
         name: 'Run',
-        endGoal: '5 km',
         status: 33
       },
       subGoal: [{
@@ -47,7 +46,6 @@ for(var i = 1; i < 200; i++){
       rate: 3,
       type: {
         name: i + ' Run',
-        endGoal: '5 km',
         status: 50
       },
       subGoal: [{
@@ -75,7 +73,6 @@ for(var i = 1; i < 2; i++){
       rate: 4,
       type: {
         name: i + ' Run',
-        endGoal: '5 km',
         status: 50
       },
       subGoal: [{
