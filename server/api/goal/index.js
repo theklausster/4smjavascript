@@ -8,6 +8,7 @@ var router = express.Router();
 router.get('/sharedNew', controller.getSharedNew);
 router.get('/sharedRandom', controller.getSharedRandom);
 router.get('/sharedRated', controller.getSharedRated);
+router.get('/sharedRunning', controller.getSharedRun);
 router.get('/',controller.index);
 router.get('/:id', controller.show);
 router.post('/', controller.create);
