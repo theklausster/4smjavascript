@@ -77,7 +77,7 @@ angular.module('4smApp')
   sharedOutdoor();
 
   function sharedCooking() {
-  GoalService.sharedPersonal(function(data) {
+  GoalService.sharedCooking(function(data) {
     $scope.sharedCooking = data;
     //socket.syncUpdates('goal', sharedRated());
   });
