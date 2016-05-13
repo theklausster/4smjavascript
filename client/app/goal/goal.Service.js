@@ -52,4 +52,5 @@ angular.module('4smApp')
         method: 'GET'
       },
     });
+
   });

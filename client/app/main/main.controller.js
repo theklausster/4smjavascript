@@ -111,7 +111,10 @@ angular.module('4smApp')
       var max = _.size(goal.subGoal);
       var x = 0;
       _(goal.subGoal).forEach(a => x += yesDone(a.done));
+
+
       var y = x/max * 100;
+
       return y;
   };
 
