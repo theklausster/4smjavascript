@@ -189,7 +189,7 @@ export function getSharedRated(req, res) {
 }
 
 export function getSharedRunning(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd37428f299f3008be7639'
     }).sort({
@@ -201,7 +201,7 @@ export function getSharedRunning(req, res) {
 }
 
 export function getSharedWalking(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd41b58d6566e00ab469da'
     }).sort({
@@ -213,7 +213,7 @@ export function getSharedWalking(req, res) {
 }
 
 export function getSharedPersonal(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd41b58d6566e00ab489da'
     }).sort({
@@ -225,7 +225,7 @@ export function getSharedPersonal(req, res) {
 }
 
 export function getSharedIndoor(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd41b58d6566e00ab479da'
     }).sort({
@@ -237,7 +237,7 @@ export function getSharedIndoor(req, res) {
 }
 
 export function getSharedOutdoor(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd41b58d6566e00ab499da'
     }).sort({
@@ -249,7 +249,7 @@ export function getSharedOutdoor(req, res) {
 }
 
 export function getSharedCooking(req, res) {
-  return Goal.find({
+  return Goal.findRandom({
       'share': true,
       'category': '56dd41b58d6566e00ab569da'
     }).sort({
