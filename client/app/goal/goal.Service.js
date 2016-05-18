@@ -23,6 +23,30 @@ angular.module('4smApp')
         url: '/api/goals/sharedRated/',
         method: 'GET',
         isArray: true
+      },sharedRunning: {
+        url: '/api/goals/sharedRunning/',
+        method: 'GET',
+        isArray: true
+      },sharedWalking: {
+        url: '/api/goals/sharedWalking/',
+        method: 'GET',
+        isArray: true
+      },sharedPersonal: {
+        url: '/api/goals/sharedPersonal/',
+        method: 'GET',
+        isArray: true
+      },sharedIndoor: {
+        url: '/api/goals/sharedIndoor/',
+        method: 'GET',
+        isArray: true
+      },sharedOutdoor: {
+        url: '/api/goals/sharedOutdoor/',
+        method: 'GET',
+        isArray: true
+      },sharedCooking: {
+        url: '/api/goals/sharedCooking/',
+        method: 'GET',
+        isArray: true
       },
       paged: {
         method: 'GET'
@@ -33,4 +57,5 @@ angular.module('4smApp')
         isArray: true
       }
     });
+
   });
