@@ -1,6 +1,10 @@
 'use strict';
+
+
+
 angular.module('4smApp')
-  .controller('MainController', function($http, $scope, socket, GoalService) {
+  .controller('MainController', function($http, $scope, socket, GoalService, GoalLogic) {
+
 
     $scope.shared = {};
     $scope.sharedRandom = {};
@@ -99,23 +103,11 @@ angular.module('4smApp')
       return x;
     };
 
-    function yesDone(subDone){
-      var doneSub = 0;
-      if (subDone === true) {
-        doneSub += 1;
-      }
-      return doneSub;
-    }
 
     $scope.goalStatus = function(goal){
-      var max = _.size(goal.subGoal);
-      var x = 0;
-      _(goal.subGoal).forEach(a => x += yesDone(a.done));
 
+     return GoalLogic.gStatus(goal);
 
-      var y = x/max * 100;
-
-      return y;
   };
 
 
