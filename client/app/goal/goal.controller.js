@@ -2,17 +2,16 @@
 
 angular.module('4smApp')
   .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
-
     $rootScope.$on('add', function(){
       $scope.openDialog();
   });
-
+    $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
-
     $scope.isOwner = function(goal) {
       return Auth.getCurrentUser()._id === goal.owner._id ? goal.owner._id : goal.owner;
     };
+
 
     function getResultsPage(pageNumber){
       GoalService.paged( {
@@ -43,7 +42,6 @@ $scope.pageChanged = function(newPage) {
         });
       };
 
-
     $scope.add = function() {
       $scope.newGoal.owner = Auth.getCurrentUser();
       GoalService.save($scope.newGoal, function() {
@@ -63,7 +61,6 @@ $scope.pageChanged = function(newPage) {
     controller: 'OpendialogController',
   });
 };
-
   })
 
   .controller('OpendialogController', function($scope, goal, $mdDialog) {
@@ -73,3 +70,4 @@ $scope.pageChanged = function(newPage) {
       $mdDialog.hide(data);
     };
   });
+

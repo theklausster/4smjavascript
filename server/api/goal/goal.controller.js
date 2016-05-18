@@ -22,7 +22,7 @@ function responseWithResult(res, statusCode) {
   };
 }
 
-function saveUpdates(updates) {;
+function saveUpdates(updates) {
   return function(entity) {
     var updated = _.extend(entity, updates);
     return updated.saveAsync()
@@ -53,13 +53,6 @@ function handleEntityNotFound(res) {
   };
 }
 
-
-// Gets a list of Goals
-//export function index(req, res) {
-//Goal.findAsync().populate('user', 'name')
-//.then(respondWithResult(res))
-//.catch(handleError(res));
-//}
 
 
 function respondWithResult(res, statusCode) {
@@ -124,11 +117,15 @@ export function index(req, res) {
 
     //Create object for pagination query
     var options = {
-      select: 'owner name startDate endDate wantUpdate updateInterval share type subGoal rate',
+      select: 'owner name startDate endDate wantUpdate updateInterval share status category subGoal rate',
       sort: req.query.sortBy,
       populate: {
         path: 'owner',
         select: 'name email'
+      },
+      populate: {
+        path: 'category',
+        select: 'name '
       },
       offset: offset,
       limit: parseFloat(req.query.limit)
@@ -167,7 +164,7 @@ export function getSharedNew(req, res) {
       'share': true
     }).sort({
       'startDate': -1
-    }).limit(5)
+    }).limit(7)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -176,7 +173,7 @@ export function getSharedNew(req, res) {
 export function getSharedRandom(req, res) {
   return Goal.findRandom({
       'share': true
-    }).limit(5)
+    }).limit(7)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -185,7 +182,19 @@ export function getSharedRandom(req, res) {
 export function getSharedRated(req, res) {
   return Goal.find({
       'share': true
-    }).sort ('-rate').limit(5)
+    }).sort ('-rate').limit(7)
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
+export function getSharedRun(req, res) {
+  return Goal.find({
+      'share': true,
+      'category': '56dd37428f299f3008be7639'
+    }).sort({
+      'startDate': -1
+    }).limit(7)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

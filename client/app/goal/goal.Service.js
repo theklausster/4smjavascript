@@ -27,5 +27,10 @@ angular.module('4smApp')
       paged: {
         method: 'GET'
       },
+      getAllCategories: {
+        url: '/api/categorys/',
+        method: 'GET',
+        isArray: true
+      }
     });
   });

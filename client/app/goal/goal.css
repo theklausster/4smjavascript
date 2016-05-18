@@ -1,41 +1,43 @@
-
-md-progress-linear.Progress{
-  max-width: 200px;
-}
-body.InProgress-tbody, body.Completed-tbody {
-  background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
-  color: #444;
-  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
-  text-shadow: 0 1px 0 #fff;
-}
-
-strong {
-  font-weight: bold;
+.GoalHeader {
+  text-align: center;
+  background: #f9fcfe;
+  color: #38405e;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-th.Completed-th, th.InProgress-th {
-  background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
-  border-left: 1px solid #555;
-  border-right: 1px solid #777;
-  border-top: 1px solid #555;
-  border-bottom: 1px solid #333;
-  box-shadow: inset 0 1px 0 #999;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 15px;
+.GoalHeader {
+  width: 100%;
+  background: #38405e;
+  padding: 1em 0;
+  color: white;
+}
+.GoalHeader h1 span {
+  font-size: 90%;
+  color: #1bbbef;
+}
+
+.hero-unit {
   position: relative;
-  text-shadow: 0 1px 0 #000;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
 }
 
-td.Completed-td, td.InProgress-td {
-  border-right: 1px solid #fff;
-  border-left: 1px solid #e8e8e8;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #e8e8e8;
-  padding: 10px 15px;
-  position: relative;
-  transition: all 300ms;
+#InProgress {
+  background: #cceeff;
+  line-height: 5px;
+  overflow: hidden;
+
+
 }
+
 
 .tgl-flip + .tgl-btn {
   padding: 2px;
@@ -94,132 +96,17 @@ td.Completed-td, td.InProgress-td {
 .tgl {
   display: none;
 }
-table.InProgress {
-  background: #f5f5f5;
-  border-collapse: separate;
-  box-shadow: inset 0 1px 0 #fff;
-  font-size: 12px;
-  line-height: 24px;
-  margin: 30px auto;
-  text-align: left;
-  width: 800px;
-  float:left;
-  width:65%;
-}
-table.Completed {
-  background: #f5f5f5;
-  border-collapse: separate;
-  box-shadow: inset 0 1px 0 #fff;
-  font-size: 12px;
-  line-height: 24px;
-  margin: 30px auto;
-  text-align: left;
-  width: 800px;
-  float:right;
-  width:30%;
-}
-h1.myHeader1{
-  float:right;
-  width:30%;
-}
-h2.myHeader2{
-  float:left;
-  width:65%;
-}
-/* Form wrapper styling */
 
-.search-wrapper {
-  width: 220px;
-  margin: 45px auto 50px auto;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
-}
-/* Form text input */
 
-.search-wrapper input {
-  width: 138px;
-  height: 20px;
-  padding: 10px 5px;
-  float: left;
-  font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
-  border: 0;
-  background: #EEE;
-  border-radius: 3px 0 0 3px;
+body {
+  text-align: center;
+  background: #f9fcfe;
+  color: #38405e;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-.search-wrapper input:focus {
-  outline: 0;
-  background: #fff;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
-}
-
-.search-wrapper input::-webkit-input-placeholder {
-  color: #999;
-  font-weight: normal;
-  font-style: italic;
-}
-
-.search-wrapper input:-moz-placeholder {
-  color: #999;
-  font-weight: normal;
-  font-style: italic;
-}
-
-.search-wrapper input:-ms-input-placeholder {
-  color: #999;
-  font-weight: normal;
-  font-style: italic;
-}
-/* Form submit button */
-
-.search-wrapper button {
-  overflow: visible;
-  position: relative;
-  float: right;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  height: 20px;
-  width: 72px;
-  font: bold 15px/20px 'lucida sans', 'trebuchet MS', 'Tahoma';
-  color: white;
-  text-transform: uppercase;
-  background: #002ad8;
-  border-radius: 0 3px 3px 0;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-}
-
-.search-wrapper button:hover {
-  background: #002ad8;
-}
-
-.search-wrapper button:active,
-.search-wrapper button:focus {
-  background: #002ad8;
-  outline: 0;
-}
-
-.search-wrapper button:before {
-  /* left arrow */
-  content: '';
-  position: absolute;
-  border-width: 8px 8px 8px 0;
-  border-style: solid solid solid none;
-  border-color: transparent #0328d8 transparent;
-  top: 2px;
-  left: -6px;
-}
-
-.search-wrapper button:hover:before {
-  border-right-color: #0709e5;
-}
-
-.search-wrapper button:focus:before,
-.search-wrapper button:active:before {
-  border-right-color: #0621c4;
-}
-
-.search-wrapper button::-moz-focus-inner {
-  /* remove extra button spacing for Mozilla Firefox */
-  border: 0;
-  padding: 0;
-}

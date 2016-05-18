@@ -26,25 +26,20 @@
     <md-checkbox ng-model="goal.share" aria-label="Checkbox 1"></md-checkbox>
   </div>
 
-  <div layout="row" layout-margin>
-    <h4>Check if you want to be notified before the Goal starts.</h4>
-    <md-checkbox ng-model="goal.wantUpdate" aria-label="Checkbox 1"></md-checkbox>
-  </div>
+<div layout="column" layout-margin>
+      <h4> Select # days before the update.</h4>
+      <md-slider-container>
+      <md-slider md-discrete step="1" min="1" max="7" aria-label="ffs" ng-model="goal.updateInterval" ></md-slider>
+    </md-slider-container>
+</div>
 
-
-
-
-  <div ng-if="goal.wantUpdate">
-    <h4> Select # days before the update.</h4>
-    <md-slider flex md-discrete ng-model="goal.updateInterval" step="1" min="1" max="7" aria-label="rating"></md-slider>
-  </div>
-
-
-
-  <md-input-container style="color: black">
-    <input ng-model="goal.type.name" required placeholder="Enter A Genre">
-  </md-input-container>
-
+<md-radio-group ng-model="goal.selectedCategory">
+  <md-radio-button ng-repeat="cat in goal.categories"
+                   ng-value="cat.name"
+                   aria-label="ffs">
+{{cat.name}}
+  </md-radio-button>
+</md-radio-group>
 
 <div layout="row" layout-margin>
   <md-input-container>

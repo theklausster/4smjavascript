@@ -12,6 +12,9 @@ angular.module('4smApp')
       $scope.goal = {};
       $scope.goalIsEmpty = true;
       $scope.goal.subGoal = [];
+      GoalService.getAllCategories(function(categories){
+        $scope.goal.categories = categories;
+      });
     }
 
     $scope.addSubgoal = function(){
