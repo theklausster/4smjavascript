@@ -1,10 +1,8 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
-    $rootScope.$on('add', function(){
-      $scope.openDialog();
-  });
+  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, DialogService) {
+
     $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
@@ -25,6 +23,10 @@ angular.module('4smApp')
 }
 getResultsPage(1);
 
+
+$scope.editGoal = function(goal){
+    DialogService.opendialog(goal);
+};
 
 $scope.pageChanged = function(newPage) {
       console.log(newPage);
@@ -49,25 +51,4 @@ $scope.pageChanged = function(newPage) {
       });
     };
 
-
-
-    $scope.openDialog = function(goal){
-  $mdDialog.show({
-    clickOutsideToClose: true,
-    templateUrl: 'app/goal/createEditGoal.html',
-    targetEvent: event,
-    locals:{ goal : goal
-    },
-    controller: 'OpendialogController',
   });
-};
-  })
-
-  .controller('OpendialogController', function($scope, goal, $mdDialog) {
-    $scope.goal = goal;
-
-    $scope.closeDialog = function(data){
-      $mdDialog.hide(data);
-    };
-  });
-
