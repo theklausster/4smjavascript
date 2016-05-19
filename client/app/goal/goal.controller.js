@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $rootScope) {
+  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $rootScope, GoalLogic) {
     $rootScope.$on('add', function(){
       $scope.openDialog();
   });
@@ -49,6 +49,11 @@ $scope.pageChanged = function(newPage) {
       });
     };
 
+    $scope.goalStatus = function(goal){
+
+     return GoalLogic.gStatus(goal);
+
+  };
 
 
     $scope.openDialog = function(goal){
@@ -70,4 +75,3 @@ $scope.pageChanged = function(newPage) {
       $mdDialog.hide(data);
     };
   });
-

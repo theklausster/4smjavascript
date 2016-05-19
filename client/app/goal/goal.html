@@ -20,7 +20,7 @@
             <img ng-src="assets/images/running.png" class="md-avatar"/>
             <div class="md-list-item-text" layout="">
               <Strong>{{goal.name}}</Strong>
-              <md-progress-linear class="Progress" md-mode="determinate" value="{{goal.status}}"> </md-progress-linear> <Strong> {{goal.status}}%</Strong>
+              <md-progress-linear class="Progress" md-mode="determinate" value="{{goalStatus(goal)}}"> </md-progress-linear> <Strong> {{goalStatus(goal)}}%</Strong>
               <ul class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></ul>
               <ul class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'">End Date</ul>
               <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">
