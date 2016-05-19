@@ -164,7 +164,7 @@ export function getSharedNew(req, res) {
       'share': true
     }).sort({
       'startDate': -1
-    }).limit(7)
+    }).limit(5)
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

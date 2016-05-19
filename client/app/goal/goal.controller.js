@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, DialogService) {
+  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $DialogService, GoalLogic) {
 
     $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
@@ -51,4 +51,11 @@ $scope.pageChanged = function(newPage) {
       });
     };
 
-  });
+    $scope.goalStatus = function(goal){
+
+     return GoalLogic.gStatus(goal);
+
+  };
+
+
+});
