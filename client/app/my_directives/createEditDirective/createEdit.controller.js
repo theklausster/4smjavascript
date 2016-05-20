@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('createEditCTRL', function ($scope, GoalService, Auth, $mdDialog) {
+  .controller('createEditCTRL', function ($scope, GoalService, Auth, $mdDialog, GoalLogic) {
 
     if(!_.isUndefined($scope.goal)) {
       $scope.goal.startDate = new Date($scope.goal.startDate);
@@ -40,6 +40,13 @@ angular.module('4smApp')
       $scope.goal.owner = Auth.getCurrentUser();
       if($scope.selectedCategory && $scope.goal.name && $scope.goal.startDate && $scope.goal.endDate && $scope.goal.updateInterval){
              var category = _($scope.goal.categories).find(a => a.name ===  $scope.selectedCategory.name);
+             var isDone = GoalLogic.gStatus($scope.goal);
+              if(isDone === 100){
+                $scope.goal.isDone = true;
+              }
+              else{
+                $scope.goal.isDone = false;
+              }
               $scope.goal.category = category._id;
               $scope.goal._id ? GoalService.update({id: $scope.goal._id}, $scope.goal) : GoalService.save($scope.goal);
               $mdDialog.hide();

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('4smApp')
-  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, $DialogService, GoalLogic) {
+  .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, DialogService, GoalLogic) {
 
     $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;

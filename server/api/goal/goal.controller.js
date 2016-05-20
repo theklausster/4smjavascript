@@ -93,7 +93,7 @@ export function index(req, res) {
   var query = {};
   if (req.query.search && req.query.search.length > 0) {
     query = {
-      'title': new RegExp(req.query.search, 'i')
+      'isDone': new RegExp(req.query.search, 'i')
     };
   }
 

@@ -21,7 +21,7 @@ var GoalSchema = new mongoose.Schema({
   updateInterval: Number,
   share: Boolean,
   rate:{ type: Number, min: 0, max: 5 },
-  status: Number,
+  isDone: Boolean,
     subGoal: [{
     name: String,
     done: Boolean
