@@ -17,7 +17,7 @@ angular.module('4smApp')
           _(goal.subGoal).forEach(a => x += yesDone(a.done));
 
 
-          var y = x / max * 100;
+          var y = Math.floor(x / max * 100);
 
           return y;
         },
