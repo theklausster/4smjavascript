@@ -86,6 +86,10 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
+export function addAndroidGoal(req, res){
+  console.log(req);
+}
+
 
 
 export function index(req, res) {
