@@ -157,7 +157,7 @@ for (var i = 1; i < 20; i++) {
 
 for (var i = 1; i < 20; i++) {
   damn.push({
-    owner: '56dd37428f299f3008be7630',
+    owner: '56dd41b58d6566e00ab466da',
     category: '56dd41b58d6566e00ab569da',
     name: i + ' Bake cakes',
     startDate: '2016-03-07',
