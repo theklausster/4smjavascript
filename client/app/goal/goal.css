@@ -34,11 +34,9 @@
   background: #cceeff;
   line-height: 5px;
   overflow: hidden;
-
-
 }
 
-
+/**TOGGLE CSS***/
 .tgl-flip + .tgl-btn {
   padding: 2px;
   -webkit-transition: all .2s ease;
@@ -66,7 +64,7 @@
 }
 .tgl-flip + .tgl-btn:after {
   content: attr(data-tg-on);
-  background: #02C66F;
+  background: #00c632;
   -webkit-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
@@ -97,7 +95,6 @@
   display: none;
 }
 
-
 body {
   text-align: center;
   background: #f9fcfe;
@@ -110,3 +107,72 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+
+
+/**TABLE CSS***/
+.container {
+  font-family: helvetica;
+  font-weight: normal;
+  width: 930px;
+  margin: 0 auto;
+}
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  width: 16.666667%;
+  vertical-align: middle;
+}
+table th {
+  font-size: 16px;
+  color: #38405e;
+}
+table td {
+  color: #38405e;
+}
+table .header-level {
+  cursor: pointer;
+}
+table table th {
+  height: 30px;
+}
+table table tbody td {
+  height: 22px;
+}
+table > thead {
+  position: relative;
+  padding: 30px 15px;
+  color: #7986CB;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+table > tbody {
+  background: #98c0ff;
+  line-height: 25px;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table > tbody:last-child {
+  border-bottom: 3px solid black;
+}
+table > tbody > tr > td {
+  font-weight: normal;
+  font-size: 16px;
+  text-align: left;
+}
+table > tbody .header-level td {
+  height: 40px;
+}
+table > tbody .sub-level td {
+  height: auto;
+  overflow: hidden;
+  background: #cceeff;
+}

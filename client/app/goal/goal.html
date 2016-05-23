@@ -1,48 +1,88 @@
 <div ng-if="isAuthenticated()">
 
   <header class="GoalHeader">
-
-    <h1>Your Goals <span>( {{ goals.length }} )</span></h1>
+    <h1>Your Goals <span>( {{ numberOfGoals }} )</span></h1>
   </header>
-  <main>
+  <!--<main>-->
 
-    <div layout="row" layout-align="center" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+    <!--<div layout="row" layout-align="center" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>-->
 
-  <span>
-      <md-content >
-        <md-toolbar class="md-hue-1">
-          <div class="md-toolbar-tools">
-            <span>In Progress</span>
-          </div>
-        </md-toolbar>
-        <md-list flex id="InProgress" >
-          <md-list-item class="md-1-line" ng-repeat="goal in goals" ng-click="null" >
-            <img ng-src="assets/images/running.png" class="md-avatar"/>
-            <div class="md-list-item-text" layout="">
-              <Strong>{{goal.name}}</Strong>
-              <md-progress-linear class="Progress" md-mode="determinate" value="{{goalStatus(goal)}}"> </md-progress-linear> <Strong> {{goalStatus(goal)}}%</Strong>
-              <ul class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></ul>
-              <ul class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'">End Date</ul>
-              <input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate">
-              <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label>
-              <ul> <md-button ng-click="delete(goal)" class="md-raised">delete</md-button></ul>
-              <ul> <md-button ng-click="editGoal(goal)" class="md-raised">edit</md-button></ul>
-              <div layout="row">
-               </div>
-            </div>
-          </md-list-item>
-      </md-content>
-  </span>
-    </div>
+  <!--<span>-->
+      <!--<md-content >-->
+        <!--<md-toolbar class="md-hue-1">-->
+          <!--<div class="md-toolbar-tools">-->
+            <!--<span>In Progress</span>-->
+          <!--</div>-->
+        <!--</md-toolbar>-->
+        <!--<md-list flex id="InProgress" >-->
+          <!--<md-list-item class="md-1-line" ng-repeat="goal in goals" ng-click="null" >-->
+            <!--<img ng-src="assets/images/running.png" class="md-avatar"/>-->
+            <!--<div class="md-list-item-text" layout="">-->
+              <!--<Strong>{{goal.name}}</Strong>-->
 
-  </main>
+              <!--<ul class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'"></ul>-->
+              <!--<ul class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'">End Date</ul>-->
+              <!--<ul> <md-button ng-click="delete(goal)" class="md-raised">delete</md-button></ul>-->
+              <!--<ul> <md-button ng-click="editGoal(goal)" class="md-raised">edit</md-button></ul>-->
+              <!--<div layout="row">-->
+               <!--</div>-->
+            <!--</div>-->
+          <!--</md-list-item>-->
+      <!--</md-content>-->
+  <!--</span>-->
+    <!--</div>-->
 
+  <!--</main>-->
+  <div class="container">
+    <table class="accordion-table" >
+      <thead>
+      <tr>
+        <th ng-click="sort('name')">Name</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Notify</th>
+        <th>Milestones</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody ng-repeat="goal in goals" ng-click="toggleTable(goal)" >
+      <tr class="header-level" >
+        <td><Strong>{{goal.name}}</Strong></td>
+        <td><md-progress-linear class="Progress" md-mode="determinate" value="{{goalStatus(goal)}}"> </md-progress-linear> <Strong> {{goalStatus(goal)}}%</Strong></td>
+        <td class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'">{{goal.startDate}}</td>
+        <td class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'">{{goal.endDate}}</td>
+        <td><input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate" ng-change="wantUpdate(goal)">
+          <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
+        <td>{{goal.subGoal.length}}</td>
+        <td><md-button ng-click="delete(goal)" class="md-raised">Delete</md-button></td>
+        <td> <md-button ng-click="editGoal(goal)" class="md-raised">Edit</md-button></td>
+      </tr>
+      <tr class="sub-level" ng-show="goal.hiddenTable" >
+        <td colspan="8">
+          <table >
+            <thead>
+            <th>Milestone</th>
+            <th>Done</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="milestone in goal.subGoal">
+              <td>{{milestone.name}}</td>
+              <td>{{milestone.done}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
 
 <table class="InProgress">
   <tbody class="InProgress-tbody" dir-paginate="goal in goals|orderBy:orderByField:reverseSort|itemsPerPage:10" current-page="pagination.current" total-items="numberOfGoals">
-
 
 
   <div ng-if="!isAuthenticated()">

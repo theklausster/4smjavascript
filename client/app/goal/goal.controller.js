@@ -2,17 +2,22 @@
 
 angular.module('4smApp')
   .controller('GoalCtrl', function($scope, GoalService, Auth, socket, $mdDialog, DialogService, GoalLogic) {
-
+    $scope.hiddenTable = true;
     $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
+    $scope.toggleTable = function(goal){
+      goal.hiddenTable = !goal.hiddenTable;
+    };
+
     $scope.isOwner = function(goal) {
       return Auth.getCurrentUser()._id === goal.owner._id ? goal.owner._id : goal.owner;
     };
 
 
-    function getResultsPage(pageNumber){
+    function getResultsPage(pageNumber, sortValue){
       GoalService.paged( {
+        sort: sortValue,
         limit: 10,
         page: pageNumber}, function(goals){
           $scope.numberOfGoals = goals.total;
@@ -28,14 +33,18 @@ $scope.editGoal = function(goal){
     DialogService.opendialog(goal);
 };
 
+    $scope.sort = function(sortValue){
+      getResultsPage(newPage, sortValue)
+    };
 $scope.pageChanged = function(newPage) {
       console.log(newPage);
-       getResultsPage(newPage);
+       getResultsPage(newPage, "name");
    };
+
 
     $scope.wantUpdate = function(goal){
       console.log(goal._id);
-      GoalService.update({id: goal._id});
+      GoalService.update({id: goal._id}, goal);
     };
       $scope.delete = function(goal) {
         console.log(goal._id);
