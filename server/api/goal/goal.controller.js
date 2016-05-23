@@ -11,6 +11,8 @@
 
 import _ from 'lodash';
 import Goal from './goal.model';
+      var mongoose = require('mongoose');
+
 
 
 function responseWithResult(res, statusCode) {
@@ -91,12 +93,14 @@ export function show(req, res) {
 export function index(req, res) {
   //Create the query
   var query = {};
-  if (req.query.search && req.query.search.length > 0) {
-    query = {
-      'isDone': new RegExp(req.query.search, 'i')
-    };
-  }
+  if (req.query.searchOwner && req.query.searchOwner.length > 0) {
+      query.owner = req.query.searchOwner;
 
+
+  }
+  if (req.query.searchIsDone && req.query.searchIsDone.length > 0) {
+      query.isDone = req.query.searchIsDone;
+  }
 
   //Make sure limit and page are numbers and above 1
   if (!req.query.limit || parseFloat(req.query.limit) < 1) {
@@ -117,7 +121,7 @@ export function index(req, res) {
 
     //Create object for pagination query
     var options = {
-      select: 'owner name startDate endDate wantUpdate updateInterval share status category subGoal rate',
+      select: 'owner name isDone startDate endDate wantUpdate updateInterval share status category subGoal rate',
       sort: req.query.sortBy,
       populate: {
         path: 'owner',
