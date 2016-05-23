@@ -19,7 +19,7 @@ Goal.find({}).removeAsync().then(() => {
     updateInterval: 7,
     share: true,
     rate: 5,
-    status: 33,
+    isDone: false,
     subGoal: [{
       name: '1 km',
       done: true
@@ -43,7 +43,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '2 km',
       done: true
@@ -75,7 +75,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '2.5 km',
       done: true
@@ -97,7 +97,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '5 kg',
       done: true
@@ -120,7 +120,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: 'Painted once',
       done: true
@@ -143,7 +143,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '5 meter',
       done: true
@@ -157,7 +157,7 @@ for (var i = 1; i < 20; i++) {
 
 for (var i = 1; i < 20; i++) {
   damn.push({
-    owner: '56dd37428f299f3008be7630',
+    owner: '56dd41b58d6566e00ab466da',
     category: '56dd41b58d6566e00ab569da',
     name: i + ' Bake cakes',
     startDate: '2016-03-07',
@@ -166,7 +166,7 @@ for (var i = 1; i < 20; i++) {
     updateInterval: 7,
     share: true,
     rate: 3,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '5 pcs',
       done: true
@@ -192,7 +192,7 @@ for (var i = 1; i < 2; i++) {
     updateInterval: 7,
     share: true,
     rate: 4,
-    status: 50,
+    isDone: false,
     subGoal: [{
       name: '5 km',
       done: true
