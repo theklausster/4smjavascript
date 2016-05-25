@@ -11,7 +11,7 @@
 
 import _ from 'lodash';
 import Goal from './goal.model';
-      var mongoose = require('mongoose');
+
 
 
 
@@ -94,7 +94,6 @@ export function show(req, res) {
 
 export function index(req, res) {
   //Create the query
-  console.log(req.query);
   var query = {};
   if (req.query.searchOwner && req.query.searchOwner.length > 0) {
       query.owner = req.query.searchOwner;
