@@ -6,7 +6,7 @@ angular.module('4smApp')
     $scope.gridToggle = true;
     $scope.isAuthenticated = Auth.isLoggedIn;
     $scope.newGoal = {};
-    $scope.toggleTable = function(goal){
+    $scope.toggleTable = function(goal) {
       goal.hiddenTable = !goal.hiddenTable;
     };
 
@@ -14,44 +14,52 @@ angular.module('4smApp')
       return Auth.getCurrentUser()._id === goal.owner._id ? goal.owner._id : goal.owner;
     };
 
+    var id = Auth.getCurrentUser()._id;
+    var done = false;
 
-    function getResultsPage(pageNumber, sortValue){
-      GoalService.paged( {
-        sort: sortValue,
+    function getResultsPage(pageNumber, owner, IsDone) {
+      GoalService.paged({
+        searchOwner: owner,
+        searchIsDone: IsDone,
         limit: 10,
-        page: pageNumber}, function(goals){
-          $scope.numberOfGoals = goals.total;
-          $scope.goals = goals.docs;
-          $scope.currentPage = pageNumber;
-          socket.syncUpdates('goal', $scope.goals);
-  });
-}
-getResultsPage(1);
+        page: pageNumber
+      }, function(goals) {
+        $scope.numberOfGoals = goals.total;
+        $scope.goals = goals.docs;
+        $scope.currentPage = pageNumber;
+        socket.syncUpdates('goal', $scope.goals);
+      });
+    }
+
+    getResultsPage(1, id, done);
 
 
-$scope.editGoal = function(goal){
-    DialogService.opendialog(goal);
-};
-
-    $scope.sort = function(sortValue){
-      getResultsPage(newPage, sortValue)
+    $scope.editGoal = function(goal) {
+      DialogService.opendialog(goal);
     };
-$scope.pageChanged = function(newPage) {
+
+    $scope.sort = function(sortValue) {
+      getResultsPage(newPage, sortValue);
+    };
+
+    $scope.pageChanged = function(newPage) {
       console.log(newPage);
-       getResultsPage(newPage, "name");
-   };
-
-
-    $scope.wantUpdate = function(goal){
-      console.log(goal._id);
-      GoalService.update({id: goal._id}, goal);
+      getResultsPage(newPage, id, done);
     };
-      $scope.delete = function(goal) {
-        console.log(goal._id);
-        GoalService.delete({
-          id: goal._id
-        });
-      };
+
+
+    $scope.wantUpdate = function(goal) {
+      console.log(goal._id);
+      GoalService.update({
+        id: goal._id
+      }, goal);
+    };
+    $scope.delete = function(goal) {
+      console.log(goal._id);
+      GoalService.delete({
+        id: goal._id
+      });
+    };
 
     $scope.add = function() {
       $scope.newGoal.owner = Auth.getCurrentUser();
@@ -60,11 +68,11 @@ $scope.pageChanged = function(newPage) {
       });
     };
 
-    $scope.goalStatus = function(goal){
+    $scope.goalStatus = function(goal) {
 
-     return GoalLogic.gStatus(goal);
+      return GoalLogic.gStatus(goal);
 
-  };
+    };
 
 
-});
+  });

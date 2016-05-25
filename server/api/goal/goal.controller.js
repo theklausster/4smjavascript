@@ -94,10 +94,10 @@ export function show(req, res) {
 
 export function index(req, res) {
   //Create the query
+  console.log(req.query);
   var query = {};
   if (req.query.searchOwner && req.query.searchOwner.length > 0) {
       query.owner = req.query.searchOwner;
-
 
   }
   if (req.query.searchIsDone && req.query.searchIsDone.length > 0) {
