@@ -7,6 +7,6 @@ angular.module('4smApp')
     scope: {
       goal: '='
     },
-    controller: 'createEditCTRL',
+    controller: 'createEditCTRL'
 
   }));

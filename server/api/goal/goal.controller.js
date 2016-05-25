@@ -90,6 +90,8 @@ export function show(req, res) {
 
 
 
+
+
 export function index(req, res) {
   //Create the query
   console.log(req.query);

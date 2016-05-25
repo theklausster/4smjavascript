@@ -37,7 +37,7 @@ angular.module('4smApp')
     };
 
     $scope.saveOrUpdate = function(){
-      $scope.goal.owner = Auth.getCurrentUser();
+      $scope.goal.owner = Auth.getCurrentUser()._id;
       if($scope.selectedCategory && $scope.goal.name && $scope.goal.startDate && $scope.goal.endDate && $scope.goal.updateInterval){
              var category = _($scope.goal.categories).find(a => a.name ===  $scope.selectedCategory.name);
              var isDone = GoalLogic.gStatus($scope.goal);
@@ -47,6 +47,7 @@ angular.module('4smApp')
               else{
                 $scope.goal.isDone = false;
               }
+              $scope.goal.owner = Auth.getCurrentUser()._id;
               $scope.goal.category = category._id;
               $scope.goal._id ? GoalService.update({id: $scope.goal._id}, $scope.goal) : GoalService.save($scope.goal);
               $mdDialog.hide();
