@@ -16,12 +16,15 @@ angular.module('4smApp')
 
     var id = Auth.getCurrentUser()._id;
     var done = false;
+    var ascOrdesc = '-';
+    var sortValue = 'name';
 
-    function getResultsPage(pageNumber, owner, IsDone) {
+    function getResultsPage(pageNumber, owner, IsDone, sortValue) {
       GoalService.paged({
         searchOwner: owner,
         searchIsDone: IsDone,
         limit: 10,
+        sortBy: ascOrdesc + sortValue,
         page: pageNumber
       }, function(goals) {
         $scope.numberOfGoals = goals.total;
@@ -31,20 +34,27 @@ angular.module('4smApp')
       });
     }
 
-    getResultsPage(1, id, done);
+    getResultsPage(1, id, done, sortValue);
 
+$scope.sorting = function(sortV){
+  sortValue = sortV;
+  if(ascOrdesc === '-'){
+    ascOrdesc = '';
+  }else {
+  ascOrdesc = '-';
+}
+getResultsPage(1, id, done, sortValue);
+};
 
     $scope.editGoal = function(goal) {
       DialogService.opendialog(goal);
     };
 
-    $scope.sort = function(sortValue) {
-      getResultsPage(newPage, sortValue);
-    };
+
 
     $scope.pageChanged = function(newPage) {
       console.log(newPage);
-      getResultsPage(newPage, id, done);
+      getResultsPage(newPage, id, done, sortValue);
     };
 
 
@@ -52,8 +62,9 @@ angular.module('4smApp')
       console.log(goal._id);
       GoalService.update({
         id: goal._id
-      }, goal);
+      }, goal );
     };
+
     $scope.delete = function(goal) {
       console.log(goal._id);
       GoalService.delete({

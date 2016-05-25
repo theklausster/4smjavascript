@@ -88,13 +88,7 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-
-
-
-
 export function index(req, res) {
-  //Create the query
-  console.log(req.query);
   var query = {};
   if (req.query.searchOwner && req.query.searchOwner.length > 0) {
       query.owner = req.query.searchOwner;
@@ -124,14 +118,10 @@ export function index(req, res) {
     //Create object for pagination query
     var options = {
       select: 'owner name isDone startDate endDate wantUpdate updateInterval share status category subGoal rate',
-      sort: req.query.sortBy,
+      sort:  req.query.sortBy,
       populate: {
-        path: 'owner',
+        path: 'owner category',
         select: 'name email'
-      },
-      populate: {
-        path: 'category',
-        select: 'name '
       },
       offset: offset,
       limit: parseFloat(req.query.limit)

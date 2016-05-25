@@ -37,12 +37,12 @@
     <table class="accordion-table" >
       <thead>
       <tr>
-        <th ng-click="sort('name')">Name</th>
+        <th ng-click="sorting('name')">Name</th>
         <th>Status</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Notify</th>
-        <th>Milestones</th>
+        <th ng-click="sorting('startDate')">Start Date</th>
+        <th ng-click="sorting('endDate')">End Date</th>
+        <th ng-click="sorting('wantUpdate')">Notify</th>
+        <th ng-click="sorting('subGoal')">Milestones</th>
         <th></th>
         <th></th>
       </tr>
@@ -53,11 +53,11 @@
         <td><md-progress-linear class="Progress" md-mode="determinate" value="{{goalStatus(goal)}}"> </md-progress-linear> <Strong> {{goalStatus(goal)}}%</Strong></td>
         <td class="grid-date" ng-bind="goal.startDate | date:'dd/MM/yyyy'">{{goal.startDate}}</td>
         <td class="grid-date" ng-bind="goal.endDate | date:'dd/MM/yyyy'">{{goal.endDate}}</td>
-        <td><input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate" ng-change="wantUpdate(goal)">
-          <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}'></label></td>
+       <td><input class='tgl tgl-flip' id="{{$index}}" type='checkbox' ng-model="goal.wantUpdate" ng-change="wantUpdate(goal)">
+          <label class='tgl-btn' data-tg-off='Nope' data-tg-on='Yeah!' for='{{$index}}' ></label></td>
         <td>{{goal.subGoal.length}}</td>
-        <td><md-button ng-click="delete(goal)" class="md-raised">Delete</md-button></td>
-        <td> <md-button ng-click="editGoal(goal)" class="md-raised">Edit</md-button></td>
+        <td><md-button ng-click="delete(goal)" class="md-primary">Delete</md-button></td>
+        <td><md-button ng-click="editGoal(goal)" class="md-primary">Edit</md-button></td>
       </tr>
       <tr class="sub-level" ng-show="goal.hiddenTable" >
         <td colspan="8">
