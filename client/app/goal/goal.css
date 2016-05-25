@@ -90,11 +90,9 @@
   -webkit-transform: rotateY(20deg);
   transform: rotateY(20deg);
 }
-
 .tgl {
   display: none;
 }
-
 body {
   text-align: center;
   background: #f9fcfe;
@@ -107,42 +105,34 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-
-
 /**TABLE CSS***/
 .container {
   font-family: helvetica;
   font-weight: normal;
-  width: 930px;
+  width: 1200px;
   margin: 0 auto;
 }
-table {
+.accordion-table {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
 }
-table td,
-table th {
+.accordion-table td,
+.accordion-table th {
   width: 16.666667%;
   vertical-align: middle;
 }
-table th {
-  font-size: 16px;
+.accordion-table th {
+  font-size: 20px;
   color: #38405e;
 }
-table td {
+.accordion-table td {
   color: #38405e;
 }
-table .header-level {
+.accordion-table .header-level {
   cursor: pointer;
 }
-table table th {
-  height: 30px;
-}
-table table tbody td {
-  height: 22px;
-}
-table > thead {
+.accordion-table > thead {
   position: relative;
   padding: 30px 15px;
   color: #7986CB;
@@ -153,25 +143,22 @@ table > thead {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-table > tbody {
+.accordion-table > tbody {
   background: #98c0ff;
   line-height: 25px;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-table > tbody:last-child {
+.accordion-table > tbody:last-child {
   border-bottom: 3px solid black;
 }
-table > tbody > tr > td {
+.accordion-table > tbody > tr > td {
   font-weight: normal;
   font-size: 16px;
   text-align: left;
 }
-table > tbody .header-level td {
-  height: 40px;
-}
-table > tbody .sub-level td {
+.accordion-table > tbody .sub-level td {
   height: auto;
   overflow: hidden;
   background: #cceeff;
