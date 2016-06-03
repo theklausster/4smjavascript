@@ -19,7 +19,8 @@ var config = {
 
   // list of files / patterns to load in the browser
   specs: [
-    'e2e/**/*.spec.js'
+    //'e2e/**/*.spec.js'
+    'client/app/my_directives/createEditDirective/*.spec.js'
   ],
 
   // Patterns to exclude.

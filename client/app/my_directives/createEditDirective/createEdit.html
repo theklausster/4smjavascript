@@ -1,5 +1,5 @@
 <div layout="column" layout-margin>
-  <h1 ng-if="goalIsEmpty"><i class="fa fa-plus"></i> Create new Goal</h1>
+  <h1 class="createtitle" ng-if="goalIsEmpty"><i class="fa fa-plus"></i> Create new Goal</h1>
   <h1 ng-if="!goalIsEmpty"><i class="fa fa-pencil"></i> Edit Goal</h1>
 
 
@@ -22,7 +22,7 @@
     </md-datepicker>
   </div>
 
-  <md-input-container class="md-block" flex-gt-sm>
+  <md-input-container class="md-block categories" flex-gt-sm>
               <label>Categories</label>
               <md-select ng-model="selectedCategory.name">
                 <md-option ng-repeat="cat in goal.categories">
@@ -31,7 +31,7 @@
               </md-select>
             </md-input-container>
 
-<md-input-container class="md-block" flex-gt-sm>
+<md-input-container class="md-block interval" flex-gt-sm>
             <label>Select # days before goal start</label>
             <md-select ng-model="goal.updateInterval">
               <md-option  ng-repeat="interval in goal.updateIntervals">
@@ -47,21 +47,21 @@
   <md-input-container>
     <input ng-model="sub" placeholder="Enter sub goal">
   </md-input-container>
-  <md-button aria-label="ffs" ng-click="addSubgoal()" class="md-raised"><i class="fa fa-plus" aria-hidden="true" style="color:green"></i></md-button>
+  <md-button aria-label="ffs"ng-click="addSubgoal()" class="md-raised addsubgoal"><i class="fa fa-plus" aria-hidden="true" style="color:green"></i></md-button>
 </div>
 
 
 
 <div layout="row" layout-margin>
-  <div ng-repeat="s in goal.subGoal" ng-if="!_.isEmpty(subGoal)">
-    <p ng-click="removeSubGoal(s)">{{s.name}} <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></p>
+  <div ng-repeat="s in goal.subGoal" ng-if="!_.isEmpty(subGoal)"  ng-click="removeSubGoal(s)">
+    <p>{{s.name}} <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></p>
     <md-checkbox ng-if="!goalIsEmpty" ng-model="s.done" aria-label="Checkbox 1">Done</md-checkbox>
 
 </div>
 </div>
   {{error}}
   <div>
-    <md-button aria-label="ffs" ng-if="goalIsEmpty" class="md-raised" ng-click="saveOrUpdate()">Add</md-button>
+    <md-button aria-label="ffs" ng-if="goalIsEmpty" class="md-raised addgoal" ng-click="saveOrUpdate()">Add</md-button>
     <md-button aria-label="ffs" ng-if="!goalIsEmpty" class="md-raised" ng-click="saveOrUpdate()">Save</md-button>
   </div>
 

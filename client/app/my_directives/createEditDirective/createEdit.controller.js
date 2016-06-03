@@ -33,7 +33,7 @@ angular.module('4smApp')
     };
 
     $scope.removeSubGoal = function(s){
-      _($scope.goal.subGoal).remove(a => a._id === s._id);
+      _($scope.goal.subGoal).remove(a => a.name === s.name);
     };
 
     $scope.saveOrUpdate = function(){
@@ -53,7 +53,7 @@ angular.module('4smApp')
               $mdDialog.hide();
       }
       else{
-          $scope.error = "Please make sure all fields are filled out"
+          $scope.error = 'Please make sure all fields are filled out';
       }
     };
 

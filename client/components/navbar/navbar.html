@@ -5,9 +5,10 @@
     <div layout="row">
     <md-button class="md-primary" ui-sref-active="active"><a ui-sref="main">Home</a></md-button>
     <md-button class="md-primary" ui-sref-active="active"><a ui-sref="goal">Goal</a></md-button>
+    <md-button class="md-primary" ng-show="isLoggedIn()" ng-click="add()">Add Goal</md-button>
     </div>
-   <span flex><md-button class="md-primary" ng-show="isLoggedIn()" ng-click="add()">Add Goal</md-button></span>
-  </span>
+
+
     <md-button class="md-primary" ng-show="isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></md-button>
     <md-button class="md-primary" ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></md-button>
     <md-button class="md-primary" ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></md-button>

@@ -14,5 +14,5 @@ angular.module('4smApp')
         });
       }
 
-      }
+    };
     });
