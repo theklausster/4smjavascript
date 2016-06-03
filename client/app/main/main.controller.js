@@ -18,8 +18,7 @@ angular.module('4smApp')
 
     function sharedNewGoal() {
       GoalService.sharedNew(function(data) {
-        $scope.shared = _.take(data, 5);
-        //socket.syncUpdates('goal', sharedNewGoal());
+        $scope.shared = data;
       });
     }
     sharedNewGoal();
